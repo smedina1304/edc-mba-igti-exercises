@@ -3,17 +3,18 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
 ## Módulo 01
 
-### Trábalho prático:
+### Trabalho prático:
 1. Realizar o download dos MICRODADOS do ENEM 2019. O arquivo está disponível neste link: <https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados>
 <br>
 Link direto para download: https://download.inep.gov.br/microdados/microdados_enem_2019.zip 
 <br>
+
 *(Baixar em uma pasta local, descompactar o arquivo e localizar em DATA o arquivo `MICRODADOS_ENEM_2019.csv`)*
 <br>
 
 <br>
 <p align="left">
-   <img src="images\mod01-s3-001.png" width="300" style="max-width: 300px;">
+   <img src="images\mod01-enem-001.png" width="300" style="max-width: 300px;">
 </p>
 <br>
 
