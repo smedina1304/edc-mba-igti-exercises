@@ -11,4 +11,4 @@ Também como referência utilizar o(s) repositório(s) abaixo:
 
 <b>
 
-Verificar nas pastas **mod** o executado em cada módulo.
+Verificar nas pastas `**mod**` o foi executado em cada módulo especificamente.

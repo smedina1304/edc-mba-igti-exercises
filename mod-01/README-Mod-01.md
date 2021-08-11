@@ -11,14 +11,14 @@ Link direto para download: https://download.inep.gov.br/microdados/microdados_en
 
 <br>
 <p align="left">
-   <img src="mod-01\images\mod01-s3-001.png" width="300" style="max-width: 300px;">
+   <img src="images\mod01-s3-001.png" width="300" style="max-width: 300px;">
 </p>
 <br>
 
 - 2. Criar um bucket chamado datalake-seunome-numerodaconta para armazenamento dos dados crus do ENEM 2019.
 <br>
 <p align="left">
-   <img src="mod-01\images\mod01-s3-001.png" width="300" style="max-width: 300px;">
+   <img src="images\mod01-s3-001.png" width="300" style="max-width: 300px;">
 </p>
 
 <br>
