@@ -50,7 +50,7 @@ Documentação de apoio:
 <br>
 <br>
 
-Source: `*mod-01\sources\mod01-trab-item3-ingestao-s3.py*`
+Source: `mod-01\sources\mod01-trab-item3-ingestao-s3.py`
 <br>
 <br>
 <p align="left">
@@ -60,8 +60,41 @@ Source: `*mod-01\sources\mod01-trab-item3-ingestao-s3.py*`
 <br>
 
 4- Fazer a transformação do CSV em parquet utilizando spark
+<br>
 
-5- Escrever o parquet em uma outra pasta no bucket chamada consumer-zone.
+Para esta tarefa escolhi criar um JOB para rodar via AWS Glue, com Spark 24 e Python 3.
+<br>
+
+Source: `mod-01\sources\mod01-trab-item4-aws-glue-job_spark.py`
+<br>
+<br>
+<p align="left">
+   <img src="images\mod01-glue-001.png" width="400" style="max-width: 400px;">
+</p>
+
+<br>
+<p align="left">
+   <img src="images\mod01-glue-002.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+
+
+5- Escrever o parquet em uma outra pasta no bucket chamada `consumer-zone`.
+<br>
+
+Com o JOB acima (item 4) executado com sucesso, o arquivo parquet foi criado na pasta destino.
+<br>
+<br>
+<p align="left">
+   <img src="images\mod01-s3-004.png" width="400" style="max-width: 400px;">
+</p>
+
+<br>
+<p align="left">
+   <img src="images\mod01-s3-005.png" width="400" style="max-width: 400px;">
+</p>
+<br>
 
 6- Criar e executar um Glue Crawler para disponibilizar o schema dos dados do ENEM 2019.
 
