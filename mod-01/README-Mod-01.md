@@ -97,7 +97,106 @@ Com o JOB acima (item 4) executado com sucesso, o arquivo parquet foi criado na 
 <br>
 
 6- Criar e executar um Glue Crawler para disponibilizar o schema dos dados do ENEM 2019.
+<br>
+
+Iniciando a criação do Crawler.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-001.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Selecionando o tipo da fonte dos dados.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-002.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Definido o S3, o bucket e a pasta de dados criada no DataLake.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-003.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Não será adicionado nenhuma outra fonte de dados.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-004.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Definindo a role para utilização, no caso será criada uma nova automaticamente.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-005.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Mantendo a frequencia default `por demanda` para atualização do catalogo de dados.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-006.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Definindo o nome da `database` para disponibilização da tabela criada pelo crawler.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-007.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Confirmando os dados e finalizando o processo.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-008.png" width="200" style="max-width: 200px;">
+</p>
+<br>
+
+Selecionar o crawler e executar a função `Run`.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-009.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Após alguns segundos é exibido a confirmação que o crawler disponibilizou a tabela na base de dados definida para acesso pelo AWS Athena.
+<br>
+<p align="left">
+   <img src="images\mod01-glue-crawler-010.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
 
 7- Realizar consultas SQL no AWS Athena.
+<br>
 
+Ao acessar o Athena, podemos verificar que a Database `datalake` foi disponibilizada e contém uma tabela disponível para consulta, sendo que o nome representa no mesmo da pasta do DataLake. Outro ponto muito importante é observar a mensagem que solicita a definição de um local de store para `query result`, a indicação é definir uma pasta especifica para esta função em seu datalake, caso não tenha recomenda-se criar uma pasta nova.
+<br>
+<p align="left">
+   <img src="images\mod01-athena-001.png" width="400" style="max-width: 400px;">
+</p>
+<br>
 
+Verificando o acesso aos dados da tabela virtualizada pelo crawler.
+<br>
+<p align="left">
+   <img src="images\mod01-athena-002.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Exemplo Query - 01.
+<br>
+<p align="left">
+   <img src="images\mod01-athena-query-001.png" width="400" style="max-width: 400px;">
+</p>
+<br>
+
+Exemplo Query - 02.
+<br>
+<p align="left">
+   <img src="images\mod01-athena-query-002.png" width="400" style="max-width: 400px;">
+</p>
+<br>
