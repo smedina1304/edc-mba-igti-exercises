@@ -50,7 +50,14 @@ Documentação de apoio:
 <br>
 <br>
 
+ATENÇÃO: O uso de credenciais fixos nos códigos `NÃO é uma boa prática de segurança` e devemos evitar expor as credenciais, pois os serviços em nuvem são tarifados, no código abaixo só está sendo utilizado por ser um caso especificamente para estudos, então busque seguir a recomendação de segurança da AWS verificar a documentação em:
+
+https://boto3.amazonaws.com/v1/documentation/api/1.9.42/guide/configuration.html
+
+
 Source: `mod-01\sources\mod01-trab-item3-ingestao-s3.py`
+
+Após executar o código para uploading o aqruivos de dados deve estar no DataLake.
 <br>
 <br>
 <p align="left">
@@ -66,6 +73,7 @@ Para esta tarefa escolhi criar um JOB para rodar via AWS Glue, com Spark 24 e Py
 <br>
 
 Source: `mod-01\sources\mod01-trab-item4-aws-glue-job_spark.py`
+
 <br>
 <br>
 <p align="left">

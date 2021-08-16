@@ -5,10 +5,14 @@ import os
 import sys
 import threading
 
-# Entre com as credenciais nos parametros abaixo ou utilize o AWSCLI para 
-# evitar expor no código as credenciais. Lembrando que esta não é uma prática 
-# para aplicar em empresas, o caso abaixo só está sendo utiliza por ser um 
-# caso de para estudos
+# 
+# ATENÇÃO: O uso de credenciais fixos nos códigos NÃO é uma boa prática de segurança 
+# e devemos evitar expor as credenciais, pois os serviços em nuvem são tarifados, no 
+# código abaixo só está sendo utilizado por ser um caso especificamente para estudos, 
+# então busque seguir a recomendação de segurança da AWS verificar a documentação em:
+#
+# https://boto3.amazonaws.com/v1/documentation/api/1.9.42/guide/configuration.html
+#
 ACCESS_KEY='[ACCESS_KEY]'
 SECRET_KEY='[SECRET_KEY]'
 
