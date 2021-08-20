@@ -8,6 +8,6 @@ terraform {
   backend "s3" {
     bucket = "datalake-smedina-4323-igti-edc"
     key    = "infrastructure/state/mod1/terraform.tfstate"
-    region = var.aws_region
+    region = "us-east-2"
   }
 }

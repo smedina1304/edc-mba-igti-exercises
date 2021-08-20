@@ -15,8 +15,22 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 *Utilizando IaC com esteira de Deploy no Github.*
 <br>
 
+Toda infraestrutura para esta etapa foi criada utilizando o Terraform, e os scripts estão na pasta: `mod-01/infraestrutura` com os arquivos separados por recurso ou funcionalidade.
+<br>
 
+Foram executados os procedimento com o Terraform para validar os scripts:
+<br>
 
+```console
+terraform init
+
+terraform fmt
+
+terraform validate
+
+terraform plan
+```
+<br>
 <br>
 
 1- Realizar a ingestão dos dados do Censo Escolar 2020 no AWS S3 ou outro storage de nuvem de sua escolha. Dados disponíveis em: `https://www.gov.br/inep/ptbr/acesso-a-informacao/dados-abertos/microdados/censo-escolar`. O método de ingestão é livre. Os dados devem ser ingeridos na zona raw ou zona crua ou zona 
