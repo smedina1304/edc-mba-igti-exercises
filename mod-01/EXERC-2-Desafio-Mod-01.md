@@ -13,10 +13,37 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
 `Preparação da Infraestrutura em Nuvem:`
 *Utilizando IaC com esteira de Deploy no Github.*
+<br><br>
+
+**Terraform Scripts**
 <br>
 
 Toda infraestrutura para esta etapa foi criada utilizando o Terraform, e os scripts estão na pasta: `mod-01/infraestrutura` com os arquivos separados por recurso ou funcionalidade.
+<br><br>
+
+Definição do Provedor AWS e definição da Pasta e Bucket para armazenamento do controle de estado dos recursos feito pelo Terraform:
 <br>
+
+Source: `mod-01/infraestrutura/provider.tf`
+<br><br>
+
+Parametros e definições para criação bucket S3 para o DataLake:
+<br>
+
+Source: `mod-01/infraestrutura/s3.tf`
+<br><br>
+
+Definição dos codigos python/pyspark para serem copiados para o DataLake:
+<br>
+
+Source: `mod-01/infraestrutura/s3_files.tf`
+<br><br>
+
+Declaração das variáveis utilizada nos scripts Terraform:
+<br>
+
+Source: `mod-01/infraestrutura/variables.tf`
+<br><br><br>
 
 Foram executados os procedimento com o Terraform para validar os scripts:
 <br>
@@ -30,6 +57,85 @@ terraform validate
 
 terraform plan
 ```
+<br>
+<br>
+
+
+**Github Actions - Criando e Executando uma Esteira para `Test` e `Deploy`**
+<br>
+
+Conforme a documentação padrão para criação de `Flows` para as `Actions` no Github, foram criados dois fluxos:
+
+**Pasta: `.github/workflows`**
+- test.yaml 
+    É executado no momento de um `Pull Request` entre uma branch de desenvolvimento com a principal chamada `Main`, e realiza toda a verificação de infraestrutura antes de efetivar as ações.
+
+- prod.yaml
+    É executado no momento do `Merge`, após a verificação do `Pull Request` finalizado. Após o `Merge` confirmado o fluxo é executado para efetivamente disponibilizar os recursos de infra definidos no script.
+
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-001.png" width="500" style="max-width: 500px;">
+</p>
+
+<br>
+<br>
+
+Após criar o `Pull Request` entre os branches `DEV` e `MAIN`, o processo definido no fluxo `test.yaml` é executado e pode ser acompanhado ou verificado, acessando a opção `Detalhes`.
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-002.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+Ao entrar em detalhes podemos ver o que foi executado em cada passo do fluxo definido na esteira para testes do processo de infra.
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-003.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+Finalizando a primeira para que é a verificação feita pelo *pull*, devemos seguir para a ação de *merge* onde temos que acessar pela aba `Pull Requests`, e percorrendo a lista de requests `Open` que foram realizadas anteriormente, selecionar a desejada e verificar os detalhes.
+
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-004.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+Estando com o estado apto realizar o *merge*, deve ser selecionado a opção `Merge pull request`, para iniciar a confirmação de atualização da branch `Main`.
+
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-005.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+Verifique o Texto ou Defina a descrição que será registrada na atualização, e Confirme para efetivar o processo.
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-006.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+Na Aba `Actions`, é possível verificar e acompanha todos os fluxos que foram e estão sendo executados nas trigges definidas nas açãoes de `Pull Request` e `Push`.
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-007.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+Acessando o fluxo que foi executado o *merge*, podemos verificar todos os detalhes e logs do processo.
+<br>
+<p align="left">
+   <img src="images/mod01-des-github-test-deploy-008.png" width="500" style="max-width: 500px;">
+</p>
 <br>
 <br>
 
