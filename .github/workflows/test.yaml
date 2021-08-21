@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Test infra on Pull Request
+    name: Test Validation on Pull Request (INFRA AWS)
     runs-on: ubuntu-latest
 
     steps:
