@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "dl" {
-  bucket = "datalake-smedina-4323-igti-edc"
+  bucket = "datalake-smedina-4343-igti-edc"
   acl    = "private"
 
   tags = {
