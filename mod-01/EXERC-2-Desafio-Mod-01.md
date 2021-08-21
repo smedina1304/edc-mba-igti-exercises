@@ -139,9 +139,62 @@ Acessando o fluxo que foi executado o *merge*, podemos verificar todos os detalh
 <br>
 <br>
 
+**Atividades**
+<br>
+
 1- Realizar a ingestão dos dados do Censo Escolar 2020 no AWS S3 ou outro storage de nuvem de sua escolha. Dados disponíveis em: `https://www.gov.br/inep/ptbr/acesso-a-informacao/dados-abertos/microdados/censo-escolar`. O método de ingestão é livre. Os dados devem ser ingeridos na zona raw ou zona crua ou zona 
 bronze do seu Data Lake. 
+<br>
+<br>
 
+- Etapa de Download realizada localmente pelo código python: `mod-01\sources\mod01-desaf-item1-download.py`
+<br>
+<p align="left">
+   <img src="images/mod01-des-download-censo-001.png" width="200" style="max-width: 200px;">
+</p>
+<br>
+
+- Etapa de Uploading realizada localmente pelo código python: `mod-01\sources\mod01-desaf-item1-ingestao.py`
+<br>
+
+``` python
+python .\mod01-desaf-item1-ingestao.py
+Definindo Client S3.
+Lendo os arquivos.
+
+Uploading [iniciando]: .\Downloads\microdados_educacao_basica_2020\DADOS\matricula_co.CSV.
+.\microdados_educacao_basica_2020\DADOS\matricula_co.CSV  964540264 / 964540264.0  (100.00%)
+Uploading [finalizado]: matricula_co.CSV
+
+
+Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_nordeste.CSV.
+.\microdados_educacao_basica_2020\DADOS\matricula_nordeste.CSV  3640506175 / 3640506175.0  (100.00%)
+Uploading [finalizado]: matricula_nordeste.CSV
+
+
+Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_norte.CSV.
+.\microdados_educacao_basica_2020\DADOS\matricula_norte.CSV  1268838221 / 1268838221.0  (100.00%)
+Uploading [finalizado]: matricula_norte.CSV
+
+
+Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_sudeste.CSV.
+.\microdados_educacao_basica_2020\DADOS\matricula_sudeste.CSV  4843869303 / 4843869303.0  (100.00%)
+Uploading [finalizado]: matricula_sudeste.CSV
+
+
+Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_sul.CSV.
+.\microdados_educacao_basica_2020\DADOS\matricula_sul.CSV  1714681857 / 1714681857.0  (100.00%)
+Uploading [finalizado]: matricula_sul.CSV
+
+
+Fim.
+```
+<br>
+<p align="left">
+   <img src="images/mod01-des-upload-censo-001.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
 <br>
 
 2- Utilizar alguma tecnologia de Big Data para transformar os dados no formato parquet

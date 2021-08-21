@@ -13,11 +13,15 @@ import threading
 #
 # https://boto3.amazonaws.com/v1/documentation/api/1.9.42/guide/configuration.html
 #
-ACCESS_KEY='[ACCESS_KEY]'
-SECRET_KEY='[SECRET_KEY]'
+ACCESS_KEY='AKIAWJJZRPVNEGEIUD5O'
+SECRET_KEY='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'
 
 # Informe o caminho do download do arquivo 'microdados_educacao_basica_2020'
-FILE_NAME=r'[FILENAME]'
+# DIR_NAME=r'[PATH]'
+# FILE_NAME=r'[FILE1; FILE2; ...]'
+DIR_NAME= r'C:\Users\ych885\Downloads\microdados_educacao_basica_2020\DADOS'
+FILE_NAME= 'matricula_co.CSV;matricula_nordeste.CSV;matricula_norte.CSV;matricula_sudeste.CSV;matricula_sul.CSV'
+
 
 # Classe para acompanhamento do percentual de upload
 class ProgressPercentage(object):
@@ -40,22 +44,37 @@ class ProgressPercentage(object):
             sys.stdout.flush()
 
 
-## Iniciando o processo de upload
+### Iniciando o processo de upload
 
 #Criar cliente para interface de upload do arquivo com AWS S3
+print('Definindo Client S3.')
 s3_client = boto3.client(
     's3',
     aws_access_key_id=ACCESS_KEY,
     aws_secret_access_key=SECRET_KEY   
 )
 
-# Lendo o arquivo
-with open(FILE_NAME, "rb") as f:
+## Lendo os arquivos
+print('Lendo os arquivos.\n')
+for fname in FILE_NAME.split(';'):
 
-    # excutando o upload para o S3
-    s3_client.upload_fileobj(
-        f, 
-        "datalake-smedina-4343-igti-edc",                  
-        "raw-data/enem/year=2019/MICRODADOS_ENEM_2019.csv",
-        Callback=ProgressPercentage(FILE_NAME)
-    )
+    arq = f'{DIR_NAME}\{fname}'
+    print(f'Uploading [iniciando]: {arq}.')
+
+    with open(arq, "rb") as f:
+
+        s_dest = f'raw-data/censo/NU_ANO_CENSO=2020/{fname}'
+        # excutando o upload para o S3
+        s3_client.upload_fileobj(
+            f, 
+            "datalake-smedina-4343-igti-edc",                  
+            s_dest,
+            Callback=ProgressPercentage(arq)
+        )
+
+        f.close()
+        print(f'\nUploading [finalizado]: {fname}\n\n')
+
+print('\n\nFim.')
+
+
