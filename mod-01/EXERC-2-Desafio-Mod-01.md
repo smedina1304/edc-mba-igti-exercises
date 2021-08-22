@@ -163,27 +163,27 @@ Definindo Client S3.
 Lendo os arquivos.
 
 Uploading [iniciando]: .\Downloads\microdados_educacao_basica_2020\DADOS\matricula_co.CSV.
-.\microdados_educacao_basica_2020\DADOS\matricula_co.CSV  964540264 / 964540264.0  (100.00%)
+.\Downloads\microdados_educacao_basica_2020\DADOS\matricula_co.CSV  964540264 / 964540264.0  (100.00%)
 Uploading [finalizado]: matricula_co.CSV
 
 
-Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_nordeste.CSV.
-.\microdados_educacao_basica_2020\DADOS\matricula_nordeste.CSV  3640506175 / 3640506175.0  (100.00%)
+Uploading [iniciando]: .\Downloads\microdados_educacao_basica_2020\DADOS\matricula_nordeste.CSV.
+.\Downloads\microdados_educacao_basica_2020\DADOS\matricula_nordeste.CSV  3640506175 / 3640506175.0  (100.00%)
 Uploading [finalizado]: matricula_nordeste.CSV
 
 
-Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_norte.CSV.
-.\microdados_educacao_basica_2020\DADOS\matricula_norte.CSV  1268838221 / 1268838221.0  (100.00%)
+Uploading [iniciando]: .\Downloads\microdados_educacao_basica_2020\DADOS\matricula_norte.CSV.
+.\Downloads\microdados_educacao_basica_2020\DADOS\matricula_norte.CSV  1268838221 / 1268838221.0  (100.00%)
 Uploading [finalizado]: matricula_norte.CSV
 
 
-Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_sudeste.CSV.
-.\microdados_educacao_basica_2020\DADOS\matricula_sudeste.CSV  4843869303 / 4843869303.0  (100.00%)
+Uploading [iniciando]: .\Downloads\microdados_educacao_basica_2020\DADOS\matricula_sudeste.CSV.
+.\Downloads\microdados_educacao_basica_2020\DADOS\matricula_sudeste.CSV  4843869303 / 4843869303.0  (100.00%)
 Uploading [finalizado]: matricula_sudeste.CSV
 
 
-Uploading [iniciando]: .\microdados_educacao_basica_2020\DADOS\matricula_sul.CSV.
-.\microdados_educacao_basica_2020\DADOS\matricula_sul.CSV  1714681857 / 1714681857.0  (100.00%)
+Uploading [iniciando]: .\Downloads\microdados_educacao_basica_2020\DADOS\matricula_sul.CSV.
+.\Downloads\microdados_educacao_basica_2020\DADOS\matricula_sul.CSV  1714681857 / 1714681857.0  (100.00%)
 Uploading [finalizado]: matricula_sul.CSV
 
 
@@ -195,10 +195,12 @@ Fim.
 </p>
 <br>
 <br>
-<br>
 
 2- Utilizar alguma tecnologia de Big Data para transformar os dados no formato parquet
 e escrevê-los na zona staging ou zona silver do seu Data Lake.
+<br>
+
+- Executar no Glue o job via código python\pyspark: `mod-01\sources\mod01-desaf-item2-aws-glue-job_spark.py`
 
 <br>
 
