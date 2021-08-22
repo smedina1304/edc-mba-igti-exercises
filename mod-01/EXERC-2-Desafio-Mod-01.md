@@ -200,26 +200,58 @@ Fim.
 e escrevê-los na zona staging ou zona silver do seu Data Lake.
 <br>
 
-- Executar no Glue o job via código python\pyspark: `mod-01\sources\mod01-desaf-item2-aws-glue-job_spark.py`
-
+- Provedor selecionado foi *AWS*, serviço foi *AWS Glue*, job via código python\pyspark: `mod-01\sources\mod01-desaf-item2-aws-glue-job_spark.py`
+<br>
+<p align="left">
+   <img src="images/mod01-des-glue-censo-001.png" width="500" style="max-width: 500px;">
+</p>
 <br>
 
-3- Fazer a integração com alguma engine de Data Lake. No caso da AWS, você deve:
-a. Configurar um Crawler para a pasta onde os arquivos na staging estão 
-depositados;
-b. Validar a disponibilização no Athena.
-
+3- Fazer a integração com alguma engine de Data Lake. No caso da AWS, você deve:<br>
+   a. Configurar um Crawler para a pasta onde os arquivos na staging estão 
+   depositados;
 <br>
+   - Provedor selecionado foi *AWS*, serviço foi *AWS Glue*, configuração do *Crawler*.
+<br>
+<p align="left">
+   <img src="images/mod01-des-crawler-censo-001.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+
+   b. Validar a disponibilização no Athena.
+<br>
+   - *AWS Athena*, query 01.
+<br>
+<p align="left">
+   <img src="images/mod01-des-athena-censo-001.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+
+   - *AWS Athena*, query 02.
+<br>
+<p align="left">
+   <img src="images/mod01-des-athena-censo-002.png" width="500" style="max-width: 500px;">
+</p>
+<br>
+<br>
+
+
 
 4- Caso deseje utilizar o Google, disponibilize os dados para consulta usando o Big 
 Query. Caso utilize outra nuvem, a escolha da engine de Data Lake é livre.
+<br>
 
+- Provedor selecionado foi *AWS*, serviço foi *AWS Athena*. (item 3)
+<br>
 <br>
 
 5- Use a ferramenta de Big Data ou a engine de Data Lake (ou o BigQuery, se escolher 
 trabalhar com Google Cloud) para investigar os dados e responder às perguntas do 
 desafio.
+<br>
 
+- Conforme recursos exemplificados no item 3, respostas do desafio foram consultadas e respondidas no gabarito.
+<br>
 <br>
 
 6- Quando o desenho da arquitetura estiver pronto, crie um repositório no Github (ou 
@@ -227,3 +259,7 @@ Gitlab, ou Bitbucket, ou outro de sua escolha) e coloque o código IaC para a
 implantação da infraestrutura. Nenhum recurso deve ser implantado 
 manualmente
 
+<br>
+
+- Utilizar este repositório, e conteúdo deste documento para evidências da implementação.
+<br>
