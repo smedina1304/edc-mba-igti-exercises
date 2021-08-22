@@ -22,15 +22,15 @@ job.init(args['JOB_NAME'], args)
 
 ## Conversão do CVS -> parquet
 
-## Lendos dados do enem
+## Lendos dados do censo
 enem = (
     spark
     .read
     .format('CSV')
     .option('header', True)
     .option('inferSchema', True)
-    .option('delimiter', ';')
-    .load('s3://[DATALAKE-NAME]/raw-data/enem/')
+    .option('delimiter', '|')
+    .load('s3://datalake-smedina-4343-igti-edc/raw-data/censo/')
 )
 
 ## Escrever no DataLake em parquet
@@ -39,7 +39,7 @@ enem = (
     .write
     .mode('overwrite')
     .format('parquet')
-    .partitionBy('year')
-    .save('s3://[DATALAKE-NAME]/consumer-zone/enem-glue/')
+    .partitionBy('CO_UF')
+    .save('s3://datalake-smedina-4343-igti-edc/consumer-zone/censo/')
 )
 

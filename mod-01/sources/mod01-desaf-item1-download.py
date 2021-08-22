@@ -9,7 +9,7 @@ csvUrl = 'https://download.inep.gov.br/dados_abertos/microdados_censo_escolar_20
 
 # Path do diretorio para gravação do arquivo
 #dirPath = '[INFORMAR PATH P/ DOWNLOAD]'
-dirPath = '/Users/ych885/Downloads'
+dirPath = './Downloads'
 
 # Iniciando o download
 filebytes = BytesIO(

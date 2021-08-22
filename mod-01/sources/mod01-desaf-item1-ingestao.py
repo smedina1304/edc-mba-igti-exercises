@@ -13,13 +13,12 @@ import threading
 #
 # https://boto3.amazonaws.com/v1/documentation/api/1.9.42/guide/configuration.html
 #
-ACCESS_KEY='AKIAWJJZRPVNEGEIUD5O'
-SECRET_KEY='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'
+ACCESS_KEY='[AWS_ACCESS_KEY]'
+SECRET_KEY='[AWS_SECRET_KEY]'
 
 # Informe o caminho do download do arquivo 'microdados_educacao_basica_2020'
-# DIR_NAME=r'[PATH]'
+DIR_NAME=r'[PATH]'
 # FILE_NAME=r'[FILE1; FILE2; ...]'
-DIR_NAME= r'C:\Users\ych885\Downloads\microdados_educacao_basica_2020\DADOS'
 FILE_NAME= 'matricula_co.CSV;matricula_nordeste.CSV;matricula_norte.CSV;matricula_sudeste.CSV;matricula_sul.CSV'
 
 
