@@ -474,7 +474,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
             CONSTRAINT customers_pkey PRIMARY KEY (id)
          );
       ```
-      
+
       <br>
 
    - Utilizar o código python `mod-02/igti-k8s-exercise/api/insert_customers_postgres.py` para inserir dados na tabela.
@@ -492,7 +492,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Kafka Connect.
-<br>
+
 
    - Criando um repositório no ECR para deploy da imagem do Kafka Connect.
    <br>
@@ -506,7 +506,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
          ```
 
-      <br>
+         <br>
 
       - Verificando o `AWS ECR`.
 
@@ -516,9 +516,9 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
          <br> 
 
       - Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
-     <br>
+         <br>
 
-     - Selecionar a imagem.
+      - Selecionar a imagem.
 
          <p align="left">
             <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
