@@ -81,7 +81,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - O conteúdo do exemplo do *igti-k8s-exercise* (acima) gerado pelo proferssor Carlos Barbosa, foi copiado para a pasta `/mod-02/igti-k8s-exercise` e será ajustado para o executar do trabalho prático. Deve ser analisado cada pasta para entendimento do conteúdo.
-<br>
+   <br>
 
    - `api`: Pasta contém script para criação da tabela de origem e leitura dos dados no `postgres`, e um código `python` para carga de dados nesta tabela.
    - `infra`: Pasta com scripts sh, para chamada de comandos para enteração com o EKS para criação da infraestrutura para implementação no Apache Kafka, ksqldb e Pinot.
@@ -91,7 +91,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    - `pinot_schema_configuration`: Scripts para criação do schema e tabela no Pinot.
 
 
-<br>
+   <br>
 
 *Etapa 2:*
 <br>
