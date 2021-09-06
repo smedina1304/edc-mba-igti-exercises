@@ -413,7 +413,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    <br>
 
    - Definição do Broker:
-   
+
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/kafka-strimzi-k8s-v1beta1
 
@@ -487,7 +487,8 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    - Criando um repositório no ECR para deploy da imagem do Kafka Connect.
    <br>
 
-      Executando o script:
+      - Executando o script:
+
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/infra
 
@@ -495,16 +496,14 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
       ```
 
-      <br>
-
-      Verificando o `AWS ECR`.
+      - Verificando o `AWS ECR`.
 
       <p align="left">
          <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
       </p>
       <br> 
 
-      Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
+      - Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
      <br>
 
      Selecionar a imagem.
@@ -514,32 +513,32 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       </p>
       <br>       
 
-      Entrar em `View Commands`.
+      - Entrar em `View Commands`.
       <p align="left">
          <img src="images/mod02-trab-ecr-002.png" width="400" style="max-width: 400px;">
       </p>
       <br>       
 
-      Verificar o OS.
+      - Verificar o OS.
       <p align="left">
          <img src="images/mod02-trab-ecr-003.png" width="400" style="max-width: 400px;">
       </p>
       <br>       
 
-      Copiar a lista de comandos na ordem definida, para ser executada.
+      - Copiar a lista de comandos na ordem definida, para ser executada.
       <p align="left">
          <img src="images/mod02-trab-ecr-004.png" width="400" style="max-width: 400px;">
       </p>
       <br>       
 
-      Executando o Build da imagem Docker:
+      - Executando o Build da imagem Docker:
 
       ``` shell
          > ./build-img-strimzi.sh
 
       ```
 
-      Finalizando o script, e sendo apresentado a mensagem de sucesso, a imagem será mostrada na `AWS ECR`, dentro do repositório criado.
+      - Finalizando o script, e sendo apresentado a mensagem de sucesso, a imagem será mostrada na `AWS ECR`, dentro do repositório criado.
 
       <br>
       <p align="left">
@@ -547,7 +546,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       </p>
       <br> 
 
-      Atualizar a URI da imagem no arquivo `connect.yml`.
+      - Atualizar a URI da imagem no arquivo `connect.yml`.
 
       <br>
       <p align="left">
@@ -560,15 +559,15 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       </p>
       <br>
 
-      Executando o deploy das configuração do Kafka Connect:
-      <br>
+      - Executando o deploy das configuração do Kafka Connect:
+
 
       ``` shell
          > kubectl apply -f connect/connect.yml -n ingestion                  
          kafkaconnect.kafka.strimzi.io/igtiedh created
       ```
 
-      Verificando.
+      - Verificando.
 
       ``` shell
          > kubectl get pods -n ingestion                                      
