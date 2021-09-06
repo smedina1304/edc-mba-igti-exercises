@@ -497,7 +497,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
    - Criando um repositório no ECR para deploy da imagem do Kafka Connect:
 
-   
+
       Executando o script.
 
 
@@ -509,6 +509,21 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       ```
 
       <br>
+
+      - Verificando o `AWS ECR`.
+
+         <p align="left">
+            <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
+         </p>
+         <br> 
+
+      - Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
+         <br>
+
+
+
+
+
 <br>
 
 *Etapa 7:*
