@@ -454,10 +454,11 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Criando a tabela no postgres e inserindo os primeiros dados.
-<br>
+
 
    - Utilizar o script `mod-02/igti-k8s-exercise/api/customers.sql` para criação da tabela no postgres:
-      <br>
+
+
       ``` sql
          CREATE TABLE public.customers (
             id serial NOT NULL,
@@ -473,6 +474,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
             CONSTRAINT customers_pkey PRIMARY KEY (id)
          );
       ```
+      
       <br>
 
    - Utilizar o código python `mod-02/igti-k8s-exercise/api/insert_customers_postgres.py` para inserir dados na tabela.
