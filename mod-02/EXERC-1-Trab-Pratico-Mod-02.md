@@ -77,8 +77,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 *Etapa 1:*
 <br>
 
-- Clonar o projeto https://github.com/carlosbpy/igti-k8s-exercise
-<br>
+- Clonar o projeto https://github.com/carlosbpy/igti-k8s-exercise.
 
 - O conteúdo do exemplo do *igti-k8s-exercise* (acima) gerado pelo proferssor Carlos Barbosa, foi copiado para a pasta `/mod-02/igti-k8s-exercise` e será ajustado para o executar do trabalho prático. Deve ser analisado cada pasta para entendimento do conteúdo.
    <br>
