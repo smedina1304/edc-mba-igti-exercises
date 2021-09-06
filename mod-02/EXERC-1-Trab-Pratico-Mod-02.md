@@ -77,11 +77,10 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 *Etapa 1:*
 <br>
 
-- Clonar o projeto https://github.com/carlosbpy/igti-k8s-exercise
-<br>
+- Clonar o projeto https://github.com/carlosbpy/igti-k8s-exercise.
 
 - O conteúdo do exemplo do *igti-k8s-exercise* (acima) gerado pelo proferssor Carlos Barbosa, foi copiado para a pasta `/mod-02/igti-k8s-exercise` e será ajustado para o executar do trabalho prático. Deve ser analisado cada pasta para entendimento do conteúdo.
-<br>
+   <br>
 
    - `api`: Pasta contém script para criação da tabela de origem e leitura dos dados no `postgres`, e um código `python` para carga de dados nesta tabela.
    - `infra`: Pasta com scripts sh, para chamada de comandos para enteração com o EKS para criação da infraestrutura para implementação no Apache Kafka, ksqldb e Pinot.
@@ -91,7 +90,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    - `pinot_schema_configuration`: Scripts para criação do schema e tabela no Pinot.
 
 
-<br>
+   <br>
 
 *Etapa 2:*
 <br>
@@ -172,15 +171,14 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       <br>
 
    - Acompanhar os logs reportados pelo script `eks.sh`, e também no `AWS CloudFormation > Stacks`.
-   <br>
 
       <p align="left">
          <img src="images\mod02-trab-cluster-002.png" width="400" style="max-width: 400px;">
       </p>
-      <br>
+      
+   <br>
 
    - É muito importante observar as configurações de subnet para que as permissões sejam liberadas para conexão com a base Postgres.
-   <br>
 
       ``` shell
          2021-08-29 17:58:17 [ℹ]  subnets for us-east-2a - public:192.168.0.0/19 private:192.168.96.0/19
@@ -190,7 +188,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
    - Assim que o script for finalizado verifique os logs para garantir que todos os recursos foram criados.
 
-      <br>
+
 
       - `ATENÇÃO:` Sendo utilizanda uma conta Free Tier, e mediante ao uso anterior, o cluster pode não ser criado pelo número de IPs da VPC reservados anteriormente, porem veja abaixo o erro reportado, e como é possível resolver este problema e seguir com a criação do cluster.
          <br>
@@ -228,7 +226,6 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
             <br>
 
    - Salvando localmente as configurações de acesso ao Cluster, utilizar o script `kube-config.sh`. Abaixo o conteúdo do script:
-   <br>
 
       ``` shell
          > cat ./kube-config.sh
@@ -279,7 +276,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    <br>
 
    - Criando os namespaces necessários para organizar o deploy dos recursos no cluster.
-   <br>
+
 
       ``` shell
          > kubectl create namespace ingestion
@@ -308,65 +305,73 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Criando o servidor Postgres via RDS, seleção da versão e o modo free tier.
-<br>
 
-<p align="left">
-   <img src="images/mod02-trab-postgre-001.png" width="400" style="max-width: 400px;">
-</p>
-<br>
 
-   - Definição do nome da instance, usuário e senha.
-<p align="left">
-   <img src="images/mod02-trab-postgre-002.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-001.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Caracteristica do Servidor.
-<p align="left">
-   <img src="images/mod02-trab-postgre-003.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Definição do nome da instance, usuário e senha.
 
-   - Storage.
-<p align="left">
-   <img src="images/mod02-trab-postgre-004.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-002.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Configurações de Network.
-<p align="left">
-   <img src="images/mod02-trab-postgre-005.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Caracteristica do Servidor.
 
-<p align="left">
-   <img src="images/mod02-trab-postgre-006.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-003.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Autenticação.
-<p align="left">
-   <img src="images/mod02-trab-postgre-007.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Storage.
 
-   - Opções adicionais.
-<p align="left">
-   <img src="images/mod02-trab-postgre-008.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-004.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Backup.
-<p align="left">
-   <img src="images/mod02-trab-postgre-009.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Configurações de Network.
 
-   - Manutenção.
-<p align="left">
-   <img src="images/mod02-trab-postgre-010.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-005.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-006.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Autenticação.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-007.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Opções adicionais.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-008.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Backup.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-009.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Manutenção.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-010.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
 
 <br>
@@ -375,8 +380,10 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Kafka Strimzi (https://strimzi.io/).
-<br>
+
+
    - Para instalação Kafka Strimzi no cluster Kubernetes, usar o script:
+
 
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/kafka-strimzi-k8s-v1beta1
@@ -400,7 +407,8 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
          https://strimzi.io/docs/operators/latest/using.html#deploying-cluster-operator-helm-chart-str
 
       ```
-   <br>
+
+      <br>
 
    - Verificar os dados mostrados no final da execução e verificar o `POD ingestion`.
 
@@ -409,10 +417,11 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
          NAME                                        READY   STATUS    RESTARTS   AGE
          strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          20m
       ```
-   <br>
-   <br>
+   
+      <br>
 
    - Definição do Broker:
+
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/kafka-strimzi-k8s-v1beta1
 
@@ -445,10 +454,11 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Criando a tabela no postgres e inserindo os primeiros dados.
-<br>
+
 
    - Utilizar o script `mod-02/igti-k8s-exercise/api/customers.sql` para criação da tabela no postgres:
-      <br>
+
+
       ``` sql
          CREATE TABLE public.customers (
             id serial NOT NULL,
@@ -464,10 +474,11 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
             CONSTRAINT customers_pkey PRIMARY KEY (id)
          );
       ```
+
       <br>
 
    - Utilizar o código python `mod-02/igti-k8s-exercise/api/insert_customers_postgres.py` para inserir dados na tabela.
-      <br>
+   
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/api
 
@@ -480,13 +491,16 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 *Etapa 6:*
 <br>
 
+
 - Deploy de Serviço - Kafka Connect.
-<br>
 
-   - Criando um repositório no ECR para deploy da imagem do Kafka Connect.
-   <br>
 
-      Executando o script:
+   - Criando um repositório no ECR para deploy da imagem do Kafka Connect:
+
+
+      Executando o script.
+
+
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/infra
 
@@ -496,165 +510,169 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
       <br>
 
-      Verificando o `AWS ECR`.
+      - Verificando o `AWS ECR`.
 
-      <p align="left">
-         <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
-      </p>
-      <br> 
+         <p align="left">
+            <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
+         </p>
+         <br> 
 
-      Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
-     <br>
+      - Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
+         <br>
 
-     Selecionar a imagem.
+         - Selecionar a imagem.
 
-      <p align="left">
-         <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
-      </p>
-      <br>       
+            <p align="left">
+               <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      Entrar em `View Commands`.
-      <p align="left">
-         <img src="images/mod02-trab-ecr-002.png" width="400" style="max-width: 400px;">
-      </p>
-      <br>       
+         - Entrar em `View Commands`.
 
-      Verificar o OS.
-      <p align="left">
-         <img src="images/mod02-trab-ecr-003.png" width="400" style="max-width: 400px;">
-      </p>
-      <br>       
+            <p align="left">
+               <img src="images/mod02-trab-ecr-002.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      Copiar a lista de comandos na ordem definida, para ser executada.
-      <p align="left">
-         <img src="images/mod02-trab-ecr-004.png" width="400" style="max-width: 400px;">
-      </p>
-      <br>       
+         - Verificar o OS.
 
-      Executando o Build da imagem Docker:
+            <p align="left">
+               <img src="images/mod02-trab-ecr-003.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      ``` shell
-         > ./build-img-strimzi.sh
+         - Copiar a lista de comandos na ordem definida, para ser executada.
 
-      ```
+            <p align="left">
+               <img src="images/mod02-trab-ecr-004.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      Finalizando o script, e sendo apresentado a mensagem de sucesso, a imagem será mostrada na `AWS ECR`, dentro do repositório criado.
+      - Executando o Build da imagem Docker:
 
-      <br>
-      <p align="left">
-         <img src="images/mod02-trab-ecr-005.png" width="400" style="max-width: 400px;">
-      </p>
-      <br> 
+         ``` shell
+            > ./build-img-strimzi.sh
 
-      Atualizar a URI da imagem no arquivo `connect.yml`.
+         ```
 
-      <br>
-      <p align="left">
-         <img src="images/mod02-trab-ecr-006.png" width="400" style="max-width: 400px;">
-      </p>
-      <br> 
+         <br>
 
-      <p align="left">
-         <img src="images/mod02-trab-ecr-007.png" width="400" style="max-width: 400px;">
-      </p>
-      <br>
+      - Finalizando o script, e sendo apresentado a mensagem de sucesso, a imagem será mostrada na `AWS ECR`, dentro do repositório criado.
 
-      Executando o deploy das configuração do Kafka Connect:
-      <br>
 
-      ``` shell
-         > kubectl apply -f connect/connect.yml -n ingestion                  
-         kafkaconnect.kafka.strimzi.io/igtiedh created
-      ```
+         <p align="left">
+            <img src="images/mod02-trab-ecr-005.png" width="400" style="max-width: 400px;">
+         </p>
+         <br> 
 
-      Verificando.
+      - Atualizar a URI da imagem no arquivo `connect.yml`.
 
-      ``` shell
-         > kubectl get pods -n ingestion                                      
-         NAME                                        READY   STATUS    RESTARTS   AGE
-         igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          114s
-         igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          3h51m
-         igtiedh-kafka-0                             1/1     Running   0          3h51m
-         igtiedh-zookeeper-0                         1/1     Running   0          3h52m
-         igtiedh-zookeeper-1                         1/1     Running   0          3h52m
-         igtiedh-zookeeper-2                         1/1     Running   0          3h52m
-         strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          4h41m
-      ```
+         <br>
+         <p align="left">
+            <img src="images/mod02-trab-ecr-006.png" width="400" style="max-width: 400px;">
+         </p>
+         <br> 
+
+         <p align="left">
+            <img src="images/mod02-trab-ecr-007.png" width="400" style="max-width: 400px;">
+         </p>
+         <br>
+
+      - Executando o deploy das configuração do Kafka Connect:
+
+         ``` shell
+            > kubectl apply -f connect/connect.yml -n ingestion                  
+            kafkaconnect.kafka.strimzi.io/igtiedh created
+         ```
+
+        Verificando.
+
+         ``` shell
+            > kubectl get pods -n ingestion                                      
+            NAME                                        READY   STATUS    RESTARTS   AGE
+            igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          114s
+            igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          3h51m
+            igtiedh-kafka-0                             1/1     Running   0          3h51m
+            igtiedh-zookeeper-0                         1/1     Running   0          3h52m
+            igtiedh-zookeeper-1                         1/1     Running   0          3h52m
+            igtiedh-zookeeper-2                         1/1     Running   0          3h52m
+            strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          4h41m
+         ```
    <br>
+
+<br>
 
 *Etapa 7:*
 <br>
 
 - Deploy de Serviço - Kafka Topic.
-<br>
 
    - Verificar as configurações do arquivo, `./topic/ingest-src-postgres-customers-json.yml`.
 
    - Estando ok, executar do deploy:
 
-   ``` shell
-      > kubectl apply -f topic/ingest-src-postgres-customers-json.yml -n ingestion 
-      kafkaconnector.kafka.strimzi.io/ingest-src-postgresql-customers-json-3200e849928721 created
+      ``` shell
+         > kubectl apply -f topic/ingest-src-postgres-customers-json.yml -n ingestion 
+         kafkaconnector.kafka.strimzi.io/ingest-src-postgresql-customers-json-3200e849928721 created
 
-   ```
+      ```
 
-   Verificando.
+      Verificando.
 
-   ``` shell
+      ``` shell
 
-      > kubectl get kafkatopics -n ingestion
-      NAME                                                                                               CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
-      connect-cluster-configs                                                                            igtiedh   1            1                    True
-      connect-cluster-offsets                                                                            igtiedh   25           1                    True
-      connect-cluster-status                                                                             igtiedh   5            1                    True
-      consumer-offsets---84e7a678d08f4bd226872e5cdd4eb527fadc1c6a                                        igtiedh   50           1                    True
-      src-postgres-customers-json                                                                        igtiedh   9            1                    True
-      strimzi-store-topic---effb8e3e057afce1ecf67c3f5d8e4e3ff177fc55                                     igtiedh   1            1                    True
-      strimzi-topic-operator-kstreams-topic-store-changelog---b75e702040b99be8a9263134de3507fc0cc4017b   igtiedh   1            1                    True
+         > kubectl get kafkatopics -n ingestion
+         NAME                                                                                               CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
+         connect-cluster-configs                                                                            igtiedh   1            1                    True
+         connect-cluster-offsets                                                                            igtiedh   25           1                    True
+         connect-cluster-status                                                                             igtiedh   5            1                    True
+         consumer-offsets---84e7a678d08f4bd226872e5cdd4eb527fadc1c6a                                        igtiedh   50           1                    True
+         src-postgres-customers-json                                                                        igtiedh   9            1                    True
+         strimzi-store-topic---effb8e3e057afce1ecf67c3f5d8e4e3ff177fc55                                     igtiedh   1            1                    True
+         strimzi-topic-operator-kstreams-topic-store-changelog---b75e702040b99be8a9263134de3507fc0cc4017b   igtiedh   1            1                    True
 
 
-      > kubectl get kafkatopics src-postgres-customers-json -n ingestion
-      NAME                          CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
-      src-postgres-customers-json   igtiedh   9            1                    True
+         > kubectl get kafkatopics src-postgres-customers-json -n ingestion
+         NAME                          CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
+         src-postgres-customers-json   igtiedh   9            1                    True
 
-      > kubectl get kafkatopics src-postgres-customers-json -n ingestion -o yaml
-      apiVersion: kafka.strimzi.io/v1beta2
-      kind: KafkaTopic
-      metadata:
-      creationTimestamp: "2021-09-04T03:27:52Z"
-      generation: 1
-      labels:
-         strimzi.io/cluster: igtiedh
-      name: src-postgres-customers-json
-      namespace: ingestion
-      resourceVersion: "41957"
-      uid: c845857e-0db6-4e8b-8760-081cd4a16d49
-      spec:
-      config: {}
-      partitions: 9
-      replicas: 1
-      topicName: src-postgres-customers-json
-      status:
-      conditions:
-      - lastTransitionTime: "2021-09-04T03:27:52.432627Z"
-         status: "True"
-         type: Ready
-      observedGeneration: 1
+         > kubectl get kafkatopics src-postgres-customers-json -n ingestion -o yaml
+         apiVersion: kafka.strimzi.io/v1beta2
+         kind: KafkaTopic
+         metadata:
+         creationTimestamp: "2021-09-04T03:27:52Z"
+         generation: 1
+         labels:
+            strimzi.io/cluster: igtiedh
+         name: src-postgres-customers-json
+         namespace: ingestion
+         resourceVersion: "41957"
+         uid: c845857e-0db6-4e8b-8760-081cd4a16d49
+         spec:
+         config: {}
+         partitions: 9
+         replicas: 1
+         topicName: src-postgres-customers-json
+         status:
+         conditions:
+         - lastTransitionTime: "2021-09-04T03:27:52.432627Z"
+            status: "True"
+            type: Ready
+         observedGeneration: 1
 
-   ```
+      ```
 
-   Monitorando o Topic com `--from-beginning`.
-   <br>
+      Monitorando o Topic com `--from-beginning`.
 
-   ``` shell
-   kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
-   --bootstrap-server localhost:9092 \
-   --property print.key==true \
-   --from-beginning \
-   --topic src-postgres-customers-json
-   ```
+      ``` shell
+      kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
+      --bootstrap-server localhost:9092 \
+      --property print.key==true \
+      --from-beginning \
+      --topic src-postgres-customers-json
+      ```
 
-   Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
+      Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
 
    <br>
 
@@ -662,340 +680,340 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Kafka Sink.
-<br>
+
 
    - Verificar as configurações do arquivo, `./sink/bucket-s3.yml`.
 
-   - Estando ok, executar do deploy:
+      - Estando ok, executar do deploy:
 
-   ``` shell
-      > kubectl apply -f sink/bucket-s3.yml -n ingestion 
-      kafkaconnector.kafka.strimzi.io/s3-sink-connector-igtiedh-9983717 created
+      ``` shell
+         > kubectl apply -f sink/bucket-s3.yml -n ingestion 
+         kafkaconnector.kafka.strimzi.io/s3-sink-connector-igtiedh-9983717 created
 
-   ```
+      ```
 
-   Monitorando o Topic com `--from-beginning`.
-   <br>
+      Monitorando o Topic com `--from-beginning`.
 
-   ``` shell
-   kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
-   --bootstrap-server localhost:9092 \
-   --property print.key==true \
-   --from-beginning \
-   --topic src-postgres-customers-json
-   ```
 
-   Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
-   <br>
+      ``` shell
+      kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
+      --bootstrap-server localhost:9092 \
+      --property print.key==true \
+      --from-beginning \
+      --topic src-postgres-customers-json
+      ```
+
+      Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
+      <br>
    <br>
 
 *Etapa 9:*
 <br>
 
 - Deploy de Serviço - KsqlDB.
-<br>
+
 
    - Verificar as configurações do arquivo, `./ksqldb-server/repository/deployment`.
-   <br>
+
 
    - Estando ok, executar do deploy:
 
-   ``` shell
-      > kubectl apply -f ./ksqldb-server/repository/deployment -n processing
-      deployment.apps/ksqldb-server created
-      service/ksqldb-headless created
-      service/ksqldb-server created
+      ``` shell
+         > kubectl apply -f ./ksqldb-server/repository/deployment -n processing
+         deployment.apps/ksqldb-server created
+         service/ksqldb-headless created
+         service/ksqldb-server created
 
-   ```
+      ```
 
-   Verificando.
+      Verificando.
 
-   ``` shell
-      > kubectl get pods -n processing                                                             
-      NAME                             READY   STATUS    RESTARTS   AGE
-      ksqldb-server-5fd75cb5f7-sgdlj   1/1     Running   0          84s
-   ```
+      ``` shell
+         > kubectl get pods -n processing                                                             
+         NAME                             READY   STATUS    RESTARTS   AGE
+         ksqldb-server-5fd75cb5f7-sgdlj   1/1     Running   0          84s
+      ```
 
-   Acessando KsqlDB.
+      Acessando KsqlDB.
 
-   ``` shell
-      > kubectl exec ksqldb-server-5fd75cb5f7-sgdlj -n processing -i -t -- bash ksql               
-      OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
-                        
-                        ===========================================
-                        =       _              _ ____  ____       =
-                        =      | | _____  __ _| |  _ \| __ )      =
-                        =      | |/ / __|/ _` | | | | |  _ \      =
-                        =      |   <\__ \ (_| | | |_| | |_) |     =
-                        =      |_|\_\___/\__, |_|____/|____/      =
-                        =                   |_|                   =
-                        =  Event Streaming Database purpose-built =
-                        =        for stream processing apps       =
-                        ===========================================
+      ``` shell
+         > kubectl exec ksqldb-server-5fd75cb5f7-sgdlj -n processing -i -t -- bash ksql               
+         OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+                           
+                           ===========================================
+                           =       _              _ ____  ____       =
+                           =      | | _____  __ _| |  _ \| __ )      =
+                           =      | |/ / __|/ _` | | | | |  _ \      =
+                           =      |   <\__ \ (_| | | |_| | |_) |     =
+                           =      |_|\_\___/\__, |_|____/|____/      =
+                           =                   |_|                   =
+                           =  Event Streaming Database purpose-built =
+                           =        for stream processing apps       =
+                           ===========================================
 
-      Copyright 2017-2020 Confluent Inc.
+         Copyright 2017-2020 Confluent Inc.
 
-      CLI v0.12.0, Server v0.12.0 located at http://localhost:8088
-      Server Status: RUNNING
+         CLI v0.12.0, Server v0.12.0 located at http://localhost:8088
+         Server Status: RUNNING
 
-      Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
+         Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
 
-      ksql> 
+         ksql> 
 
-   ```
+      ```
 
-   Mostrando os Topics disponíveis.
+      Mostrando os Topics disponíveis.
 
-   ``` sql
-      ksql> show topics;
+      ``` sql
+         ksql> show topics;
 
-      Kafka Topic                                             | Partitions | Partition Replicas 
-      -------------------------------------------------------------------------------------------
-      __strimzi-topic-operator-kstreams-topic-store-changelog | 1          | 1                  
-      __strimzi_store_topic                                   | 1          | 1                  
-      connect-cluster-configs                                 | 1          | 1                  
-      connect-cluster-offsets                                 | 25         | 1                  
-      connect-cluster-status                                  | 5          | 1                  
-      default_ksql_processing_log                             | 1          | 1                  
-      src-postgres-customers-json                             | 9          | 1                  
-      -------------------------------------------------------------------------------------------
-   ```
+         Kafka Topic                                             | Partitions | Partition Replicas 
+         -------------------------------------------------------------------------------------------
+         __strimzi-topic-operator-kstreams-topic-store-changelog | 1          | 1                  
+         __strimzi_store_topic                                   | 1          | 1                  
+         connect-cluster-configs                                 | 1          | 1                  
+         connect-cluster-offsets                                 | 25         | 1                  
+         connect-cluster-status                                  | 5          | 1                  
+         default_ksql_processing_log                             | 1          | 1                  
+         src-postgres-customers-json                             | 9          | 1                  
+         -------------------------------------------------------------------------------------------
+      ```
 
-   Creando um Stream para consumir o dado. (src-postgres-customers-json.sql)
+      Criando um Stream para consumir o dado. (src-postgres-customers-json.sql)
 
-   ``` sql
+      ``` sql
 
-      CREATE OR REPLACE STREAM ksql_stream_customers_json
-      (
-      "payload" STRUCT<"id" BIGINT,
-                        "nome" VARCHAR,
-                        "sexo" VARCHAR,
-                        "endereco" VARCHAR,
-                        "telefone" VARCHAR,
-                        "email" VARCHAR,
-                        "foto" VARCHAR,
-                        "nascimento" VARCHAR,
-                        "profissao" VARCHAR,
-                        "dt_update" BIGINT,
-                        "messagetopic" VARCHAR,
-                        "messagesource" VARCHAR>
-      )
-      WITH (KAFKA_TOPIC='src-postgres-customers-json', VALUE_FORMAT='JSON');
+         CREATE OR REPLACE STREAM ksql_stream_customers_json
+         (
+         "payload" STRUCT<"id" BIGINT,
+                           "nome" VARCHAR,
+                           "sexo" VARCHAR,
+                           "endereco" VARCHAR,
+                           "telefone" VARCHAR,
+                           "email" VARCHAR,
+                           "foto" VARCHAR,
+                           "nascimento" VARCHAR,
+                           "profissao" VARCHAR,
+                           "dt_update" BIGINT,
+                           "messagetopic" VARCHAR,
+                           "messagesource" VARCHAR>
+         )
+         WITH (KAFKA_TOPIC='src-postgres-customers-json', VALUE_FORMAT='JSON');
 
-      Message        
-      ----------------
-      Stream created 
-      ----------------
+         Message        
+         ----------------
+         Stream created 
+         ----------------
+
+
+         ksql> show streams;
+
+         Stream Name                | Kafka Topic                 | Format 
+         -------------------------------------------------------------------
+         KSQL_PROCESSING_LOG        | default_ksql_processing_log | JSON   
+         KSQL_STREAM_CUSTOMERS_JSON | src-postgres-customers-json | JSON   
+         -------------------------------------------------------------------
+
+      ```
+
+      Utilizar o Stream criado e ler como uma tabela gerando um a output Topic.
+      (output_ksqldb_stream_customers_json.sql)
+
+      ``` sql
+
+         CREATE OR REPLACE STREAM output_ksqldb_stream_customers_json
+         WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, VALUE_FORMAT='JSON')
+         AS
+         SELECT
+         AS_VALUE("payload"->"id") as "business_key",
+         "payload"->"id" as "id",
+         "payload"->"nome",
+         "payload"->"sexo",
+         "payload"->"endereco",
+         "payload"->"telefone",
+         "payload"->"dt_update"
+         FROM ksql_stream_customers_json
+         EMIT CHANGES;
+
+         Message                                                          
+         ------------------------------------------------------------------
+         Created query with ID CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 
+         ------------------------------------------------------------------
+
+
+      ksql> show queries;
+
+      Query ID                                   | Query Type | Status    | Sink Name                           | Sink Kafka Topic                    | Query String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      --------------------------------------------------------------------------------------------------------------------------------------------------------------
+      CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 | PERSISTENT | RUNNING:1 | OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | CREATE OR REPLACE STREAM OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, REPLICAS=1, VALUE_FORMAT='JSON') AS SELECT   AS_VALUE(KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id`) `business_key`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id` `id`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`nome` `nome`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`sexo` `sexo`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`endereco` `endereco`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`telefone` `telefone`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`dt_update` `dt_update` FROM KSQL_STREAM_CUSTOMERS_JSON KSQL_STREAM_CUSTOMERS_JSON EMIT CHANGES; 
+      --------------------------------------------------------------------------------------------------------------------------------------------------------------
+      For detailed information on a Query run: EXPLAIN <Query ID>;
+
 
 
       ksql> show streams;
 
-      Stream Name                | Kafka Topic                 | Format 
-      -------------------------------------------------------------------
-      KSQL_PROCESSING_LOG        | default_ksql_processing_log | JSON   
-      KSQL_STREAM_CUSTOMERS_JSON | src-postgres-customers-json | JSON   
-      -------------------------------------------------------------------
+      Stream Name                         | Kafka Topic                         | Format 
+      ------------------------------------------------------------------------------------
+      KSQL_PROCESSING_LOG                 | default_ksql_processing_log         | JSON   
+      KSQL_STREAM_CUSTOMERS_JSON          | src-postgres-customers-json         | JSON   
+      OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | JSON   
+      ------------------------------------------------------------------------------------
 
-   ```
+      ```
 
-   Utilizar o Stream criado e ler como uma tabela gerando um a output Topic.
-   (output_ksqldb_stream_customers_json.sql)
-
-   ``` sql
-
-      CREATE OR REPLACE STREAM output_ksqldb_stream_customers_json
-      WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, VALUE_FORMAT='JSON')
-      AS
-      SELECT
-      AS_VALUE("payload"->"id") as "business_key",
-      "payload"->"id" as "id",
-      "payload"->"nome",
-      "payload"->"sexo",
-      "payload"->"endereco",
-      "payload"->"telefone",
-      "payload"->"dt_update"
-      FROM ksql_stream_customers_json
-      EMIT CHANGES;
-
-      Message                                                          
-      ------------------------------------------------------------------
-      Created query with ID CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 
-      ------------------------------------------------------------------
-
-
-   ksql> show queries;
-
-   Query ID                                   | Query Type | Status    | Sink Name                           | Sink Kafka Topic                    | Query String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-   --------------------------------------------------------------------------------------------------------------------------------------------------------------
-   CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 | PERSISTENT | RUNNING:1 | OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | CREATE OR REPLACE STREAM OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, REPLICAS=1, VALUE_FORMAT='JSON') AS SELECT   AS_VALUE(KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id`) `business_key`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id` `id`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`nome` `nome`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`sexo` `sexo`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`endereco` `endereco`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`telefone` `telefone`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`dt_update` `dt_update` FROM KSQL_STREAM_CUSTOMERS_JSON KSQL_STREAM_CUSTOMERS_JSON EMIT CHANGES; 
-   --------------------------------------------------------------------------------------------------------------------------------------------------------------
-   For detailed information on a Query run: EXPLAIN <Query ID>;
-
-
-
-   ksql> show streams;
-
-   Stream Name                         | Kafka Topic                         | Format 
-   ------------------------------------------------------------------------------------
-   KSQL_PROCESSING_LOG                 | default_ksql_processing_log         | JSON   
-   KSQL_STREAM_CUSTOMERS_JSON          | src-postgres-customers-json         | JSON   
-   OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | JSON   
-   ------------------------------------------------------------------------------------
-
-   ```
-
-   Queries de teste. (select_output_stream_customers.sql)
+      Queries de teste. (select_output_stream_customers.sql)
 
       OBS: se necessário definir para ler desde o primeiro registro executar o comando abaixo:
       ksql> set 'auto.offset.reset' =  'earliest';
 
 
-   ``` sql
-      -- QUERY 1
-      SELECT
-      "sexo",
-      count("business_key") AS "qtd_por_sexo"
-      FROM output_ksqldb_stream_customers_json
-      GROUP BY "sexo"
-      EMIT CHANGES;
+      ``` sql
+         -- QUERY 1
+         SELECT
+         "sexo",
+         count("business_key") AS "qtd_por_sexo"
+         FROM output_ksqldb_stream_customers_json
+         GROUP BY "sexo"
+         EMIT CHANGES;
 
-      -- QUERY 2
+         -- QUERY 2
 
-      SELECT
-      "id",
-      "nome",
-      "endereco",
-      "telefone",
-      "dt_update"
-      FROM output_ksqldb_stream_customers_json
-      EMIT CHANGES;
-   ```
-
+         SELECT
+         "id",
+         "nome",
+         "endereco",
+         "telefone",
+         "dt_update"
+         FROM output_ksqldb_stream_customers_json
+         EMIT CHANGES;
+      ```
+   <br>
+<br>
 
 *Etapa 10:*
 <br>
 
 - Deploy de Serviço - Apache Pinot.
-<br>
+
 
    - Executar o deploy do Pinot.
 
-   ``` shell
-      > cd ./mod-02/igti-k8s-exercise/incubator-pinot
-      
-      > . /deploy-pinot.sh
-      "pinot" has been added to your repositories
-      NAME: pinot
-      LAST DEPLOYED: Sat Sep  4 02:15:24 2021
-      NAMESPACE: datastorage
-      STATUS: deployed
-      REVISION: 1
-      TEST SUITE: None
+      ``` shell
+         > cd ./mod-02/igti-k8s-exercise/incubator-pinot
+         
+         > . /deploy-pinot.sh
+         "pinot" has been added to your repositories
+         NAME: pinot
+         LAST DEPLOYED: Sat Sep  4 02:15:24 2021
+         NAMESPACE: datastorage
+         STATUS: deployed
+         REVISION: 1
+         TEST SUITE: None
 
-   ```
+      ```
 
    - Listando os PODs.
 
-   ``` shell
-      kubectl get pods -A                                                         
-      NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE
-      datastorage   pinot-broker-0                              0/1     Running   1          75s
-      datastorage   pinot-controller-0                          1/1     Running   1          75s
-      datastorage   pinot-minion-0                              1/1     Running   0          75s
-      datastorage   pinot-server-0                              1/1     Running   1          75s
-      datastorage   pinot-server-1                              1/1     Running   1          75s
-      datastorage   pinot-zookeeper-0                           1/1     Running   0          75s
-      ingestion     igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          120m
-      ingestion     igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          5h49m
-      ingestion     igtiedh-kafka-0                             1/1     Running   0          5h50m
-      ingestion     igtiedh-zookeeper-0                         1/1     Running   0          5h50m
-      ingestion     igtiedh-zookeeper-1                         1/1     Running   0          5h50m
-      ingestion     igtiedh-zookeeper-2                         1/1     Running   0          5h50m
-      ingestion     strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          6h40m
-      kube-system   aws-node-548f6                              1/1     Running   0          8h
-      kube-system   aws-node-x5jp9                              1/1     Running   0          8h
-      kube-system   coredns-5c778788f4-6b6vl                    1/1     Running   0          8h
-      kube-system   coredns-5c778788f4-tgzdr                    1/1     Running   0          8h
-      kube-system   kube-proxy-l6bd4                            1/1     Running   0          8h
-      kube-system   kube-proxy-v8k58                            1/1     Running   0          8h
-      processing    ksqldb-server-5fd75cb5f7-sgdlj              1/1     Running   0          43m
-   ```
+      ``` shell
+         kubectl get pods -A                                                         
+         NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE
+         datastorage   pinot-broker-0                              0/1     Running   1          75s
+         datastorage   pinot-controller-0                          1/1     Running   1          75s
+         datastorage   pinot-minion-0                              1/1     Running   0          75s
+         datastorage   pinot-server-0                              1/1     Running   1          75s
+         datastorage   pinot-server-1                              1/1     Running   1          75s
+         datastorage   pinot-zookeeper-0                           1/1     Running   0          75s
+         ingestion     igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          120m
+         ingestion     igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          5h49m
+         ingestion     igtiedh-kafka-0                             1/1     Running   0          5h50m
+         ingestion     igtiedh-zookeeper-0                         1/1     Running   0          5h50m
+         ingestion     igtiedh-zookeeper-1                         1/1     Running   0          5h50m
+         ingestion     igtiedh-zookeeper-2                         1/1     Running   0          5h50m
+         ingestion     strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          6h40m
+         kube-system   aws-node-548f6                              1/1     Running   0          8h
+         kube-system   aws-node-x5jp9                              1/1     Running   0          8h
+         kube-system   coredns-5c778788f4-6b6vl                    1/1     Running   0          8h
+         kube-system   coredns-5c778788f4-tgzdr                    1/1     Running   0          8h
+         kube-system   kube-proxy-l6bd4                            1/1     Running   0          8h
+         kube-system   kube-proxy-v8k58                            1/1     Running   0          8h
+         processing    ksqldb-server-5fd75cb5f7-sgdlj              1/1     Running   0          43m
+      ```
 
-   Configurando um Port Forwarding para acesso do Pinot.
-   (./mod-02/igti-k8s-exercise/query-pinot-data.sh)
-   <br>
+   - Configurando um Port Forwarding para acesso do Pinot. (./mod-02/igti-k8s-exercise/query-pinot-data.sh)
 
-   ``` shell 
-      > ./query-pinot-data.sh 
-   ```
 
-   Assim que executado o script acima, será feito o direcionamento para porta 9000 no browser para acesso do Pinot.
+      ``` shell 
+         > ./query-pinot-data.sh 
+      ```
 
-   <br>
-   <p align="left">
-      <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
-   </p>
-   <br> 
+      Assim que executado o script acima, será feito o direcionamento para porta 9000 no browser para acesso do Pinot.
 
-   Executar o script para disponibilizar para o Pinota estrutura da tabela realtime que receberá os dados do kafka.
 
-   ``` shell
-      > cd mod-02/igti-k8s-exercise.
+      <p align="left">
+         <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
+      </p>
+      <br> 
+
+   - Executar o script para disponibilizar para o Pinota estrutura da tabela realtime que receberá os dados do kafka.
+
+      ``` shell
+         > cd mod-02/igti-k8s-exercise.
+         
+         > ./add-table-pinot.sh
+
+            # Entrou no Pinot remotamente e vamos lista para ver se foi feito a cópia dos arquivo
+            root@pinot-controller-0:/opt/pinot# ls -ls
+            total 108
+            24 -rw-r--r--  1 root root  24012 Sep  3 22:21 LICENSE
+            32 -rw-r--r--  1 root root  28788 Sep  3 22:21 NOTICE
+            0 drwxr-xr-x  1 root root     26 Sep  3 22:25 bin
+            4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 conf
+            0 drwxr-xr-x  2 root root      6 Sep  3 22:21 configs
+            4 -rw-r--r--  1  501 staff   607 Sep  4 05:42 customers-schema.json
+            4 -rw-r--r--  1  501 staff  1103 Sep  4 05:42 customers-table.json
+            0 drwxr-xr-x  2 root root      6 Sep  3 22:21 data
+            0 drwxr-xr-x  4 root root     50 Sep  3 22:25 etc
+            0 drwxr-xr-x  1 root root     20 Sep  3 22:25 examples
+            36 -rw-r--r--  1 root root  36453 Sep  4 05:23 gc-pinot-controller.log
+            0 drwxr-xr-x  2 root root     64 Sep  3 22:21 lib
+            4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 licenses
+            0 drwxr-xr-x  2 root root     27 Sep  4 05:16 logs
+            0 drwxr-xr-x 11 root root    246 Sep  3 22:21 plugins
+
+
+            # A variavel de ambiente JAVA_OPTS deve ser sobrescrita como ""
+            root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
+            -Xms256M -Xmx1G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xlog:gc*:file=/opt/pinot/gc-pinot-controller.log -Dlog4j2.configurationFile=/opt/pinot/conf/log4j2.xml -Dplugins.dir=/opt/pinot/plugins
+            root@pinot-controller-0:/opt/pinot# JAVA_OPTS=""
+            root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
+
+      ```
+
+   - Adicionando as tablelas no Pinot.
+
+      ``` shell
+         root@pinot-controller-0:/opt/pinot# cd bin
+         root@pinot-controller-0:/opt/pinot/bin# ./pinot-admin.sh AddTable \
+         > -schemaFile /opt/pinot/customers-schema.json \
+         > -tableConfigFile /opt/pinot/customers-table.json \
+         > -exec
+
+         [...]
+
+         {"status":"Table customers_REALTIME succesfully added"}
+
+      ```
+
+   - Ver a tabela disponível no Pinot.
       
-      > ./add-table-pinot.sh
-
-         # Entrou no Pinot remotamente e vamos lista para ver se foi feito a cópia dos arquivo
-         root@pinot-controller-0:/opt/pinot# ls -ls
-         total 108
-         24 -rw-r--r--  1 root root  24012 Sep  3 22:21 LICENSE
-         32 -rw-r--r--  1 root root  28788 Sep  3 22:21 NOTICE
-         0 drwxr-xr-x  1 root root     26 Sep  3 22:25 bin
-         4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 conf
-         0 drwxr-xr-x  2 root root      6 Sep  3 22:21 configs
-         4 -rw-r--r--  1  501 staff   607 Sep  4 05:42 customers-schema.json
-         4 -rw-r--r--  1  501 staff  1103 Sep  4 05:42 customers-table.json
-         0 drwxr-xr-x  2 root root      6 Sep  3 22:21 data
-         0 drwxr-xr-x  4 root root     50 Sep  3 22:25 etc
-         0 drwxr-xr-x  1 root root     20 Sep  3 22:25 examples
-         36 -rw-r--r--  1 root root  36453 Sep  4 05:23 gc-pinot-controller.log
-         0 drwxr-xr-x  2 root root     64 Sep  3 22:21 lib
-         4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 licenses
-         0 drwxr-xr-x  2 root root     27 Sep  4 05:16 logs
-         0 drwxr-xr-x 11 root root    246 Sep  3 22:21 plugins
+      
+      <p align="left">
+         <img src="images/mod02-trab-pinot-002.png" width="600" style="max-width: 600px;">
+      </p>
+      <br>    
 
 
-         # A variavel de ambiente JAVA_OPTS deve ser sobrescrita como ""
-         root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
-         -Xms256M -Xmx1G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xlog:gc*:file=/opt/pinot/gc-pinot-controller.log -Dlog4j2.configurationFile=/opt/pinot/conf/log4j2.xml -Dplugins.dir=/opt/pinot/plugins
-         root@pinot-controller-0:/opt/pinot# JAVA_OPTS=""
-         root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
-
-   ```
-
-   Adicionando as tablelas no Pinot.
-
-   ``` shell
-      root@pinot-controller-0:/opt/pinot# cd bin
-      root@pinot-controller-0:/opt/pinot/bin# ./pinot-admin.sh AddTable \
-      > -schemaFile /opt/pinot/customers-schema.json \
-      > -tableConfigFile /opt/pinot/customers-table.json \
-      > -exec
-
-      [...]
-
-      {"status":"Table customers_REALTIME succesfully added"}
-
-   ```
-
-   Ver a tabela disponível no Pinot.
+   - Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
    <br>
-   
-   <p align="left">
-      <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
-   </p>
-   <br>    
-
-
-   Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
-   <br>
-   <br>
+<br>
