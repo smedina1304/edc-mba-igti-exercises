@@ -585,7 +585,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
             kafkaconnect.kafka.strimzi.io/igtiedh created
          ```
 
-      - Verificando.
+        Verificando.
 
          ``` shell
             > kubectl get pods -n ingestion                                      
