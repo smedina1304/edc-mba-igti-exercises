@@ -172,15 +172,14 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       <br>
 
    - Acompanhar os logs reportados pelo script `eks.sh`, e também no `AWS CloudFormation > Stacks`.
-   <br>
 
       <p align="left">
          <img src="images\mod02-trab-cluster-002.png" width="400" style="max-width: 400px;">
       </p>
-      <br>
+      
+   <br>
 
    - É muito importante observar as configurações de subnet para que as permissões sejam liberadas para conexão com a base Postgres.
-   <br>
 
       ``` shell
          2021-08-29 17:58:17 [ℹ]  subnets for us-east-2a - public:192.168.0.0/19 private:192.168.96.0/19
