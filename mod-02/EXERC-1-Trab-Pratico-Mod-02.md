@@ -678,32 +678,33 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
 *Etapa 8:*
 <br>
-Deploy de Serviço - Kafka Sink.
+
+- Deploy de Serviço - Kafka Sink.
 <br>
 
    - Verificar as configurações do arquivo, `./sink/bucket-s3.yml`.
 
-   - Estando ok, executar do deploy:
+      - Estando ok, executar do deploy:
 
-   ``` shell
-      > kubectl apply -f sink/bucket-s3.yml -n ingestion 
-      kafkaconnector.kafka.strimzi.io/s3-sink-connector-igtiedh-9983717 created
+      ``` shell
+         > kubectl apply -f sink/bucket-s3.yml -n ingestion 
+         kafkaconnector.kafka.strimzi.io/s3-sink-connector-igtiedh-9983717 created
 
-   ```
+      ```
 
-   Monitorando o Topic com `--from-beginning`.
-   <br>
+      Monitorando o Topic com `--from-beginning`.
 
-   ``` shell
-   kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
-   --bootstrap-server localhost:9092 \
-   --property print.key==true \
-   --from-beginning \
-   --topic src-postgres-customers-json
-   ```
 
-   Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
-   <br>
+      ``` shell
+      kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
+      --bootstrap-server localhost:9092 \
+      --property print.key==true \
+      --from-beginning \
+      --topic src-postgres-customers-json
+      ```
+
+      Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
+      <br>
    <br>
 
 *Etapa 9:*
