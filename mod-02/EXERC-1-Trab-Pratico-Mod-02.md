@@ -520,33 +520,33 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       - Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
          <br>
 
-      - Selecionar a imagem.
+         - Selecionar a imagem.
 
-         <p align="left">
-            <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
+            <p align="left">
+               <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      - Entrar em `View Commands`.
+         - Entrar em `View Commands`.
 
-         <p align="left">
-            <img src="images/mod02-trab-ecr-002.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
+            <p align="left">
+               <img src="images/mod02-trab-ecr-002.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      - Verificar o OS.
+         - Verificar o OS.
 
-         <p align="left">
-            <img src="images/mod02-trab-ecr-003.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
+            <p align="left">
+               <img src="images/mod02-trab-ecr-003.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
-      - Copiar a lista de comandos na ordem definida, para ser executada.
+         - Copiar a lista de comandos na ordem definida, para ser executada.
 
-         <p align="left">
-            <img src="images/mod02-trab-ecr-004.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
+            <p align="left">
+               <img src="images/mod02-trab-ecr-004.png" width="400" style="max-width: 400px;">
+            </p>
+            <br>       
 
       - Executando o Build da imagem Docker:
 
