@@ -495,10 +495,9 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 - Deploy de Serviço - Kafka Connect.
 
 
-   - Criando um repositório no ECR para deploy da imagem do Kafka Connect.
-   <br>
+   - Criando um repositório no ECR para deploy da imagem do Kafka Connect:
 
-
+   
       Executando o script.
 
 
