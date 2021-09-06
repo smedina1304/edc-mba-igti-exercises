@@ -1009,7 +1009,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       
       
       <p align="left">
-         <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
+         <img src="images/mod02-trab-pinot-002.png" width="600" style="max-width: 600px;">
       </p>
       <br>    
 
