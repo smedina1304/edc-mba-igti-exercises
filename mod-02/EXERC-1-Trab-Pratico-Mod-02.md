@@ -468,7 +468,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
       <br>
 
    - Utilizar o código python `mod-02/igti-k8s-exercise/api/insert_customers_postgres.py` para inserir dados na tabela.
-      <br>
+   
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/api
 
@@ -487,7 +487,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    - Criando um repositório no ECR para deploy da imagem do Kafka Connect.
    <br>
 
-      - Executando o script:
+      - Executando o script.
 
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/infra
@@ -496,6 +496,8 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
       ```
 
+      <br>
+      
       - Verificando o `AWS ECR`.
 
       <p align="left">
