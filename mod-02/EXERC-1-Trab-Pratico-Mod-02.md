@@ -895,126 +895,125 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Apache Pinot.
-<br>
+
 
    - Executar o deploy do Pinot.
 
-   ``` shell
-      > cd ./mod-02/igti-k8s-exercise/incubator-pinot
-      
-      > . /deploy-pinot.sh
-      "pinot" has been added to your repositories
-      NAME: pinot
-      LAST DEPLOYED: Sat Sep  4 02:15:24 2021
-      NAMESPACE: datastorage
-      STATUS: deployed
-      REVISION: 1
-      TEST SUITE: None
+      ``` shell
+         > cd ./mod-02/igti-k8s-exercise/incubator-pinot
+         
+         > . /deploy-pinot.sh
+         "pinot" has been added to your repositories
+         NAME: pinot
+         LAST DEPLOYED: Sat Sep  4 02:15:24 2021
+         NAMESPACE: datastorage
+         STATUS: deployed
+         REVISION: 1
+         TEST SUITE: None
 
-   ```
+      ```
 
    - Listando os PODs.
 
-   ``` shell
-      kubectl get pods -A                                                         
-      NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE
-      datastorage   pinot-broker-0                              0/1     Running   1          75s
-      datastorage   pinot-controller-0                          1/1     Running   1          75s
-      datastorage   pinot-minion-0                              1/1     Running   0          75s
-      datastorage   pinot-server-0                              1/1     Running   1          75s
-      datastorage   pinot-server-1                              1/1     Running   1          75s
-      datastorage   pinot-zookeeper-0                           1/1     Running   0          75s
-      ingestion     igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          120m
-      ingestion     igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          5h49m
-      ingestion     igtiedh-kafka-0                             1/1     Running   0          5h50m
-      ingestion     igtiedh-zookeeper-0                         1/1     Running   0          5h50m
-      ingestion     igtiedh-zookeeper-1                         1/1     Running   0          5h50m
-      ingestion     igtiedh-zookeeper-2                         1/1     Running   0          5h50m
-      ingestion     strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          6h40m
-      kube-system   aws-node-548f6                              1/1     Running   0          8h
-      kube-system   aws-node-x5jp9                              1/1     Running   0          8h
-      kube-system   coredns-5c778788f4-6b6vl                    1/1     Running   0          8h
-      kube-system   coredns-5c778788f4-tgzdr                    1/1     Running   0          8h
-      kube-system   kube-proxy-l6bd4                            1/1     Running   0          8h
-      kube-system   kube-proxy-v8k58                            1/1     Running   0          8h
-      processing    ksqldb-server-5fd75cb5f7-sgdlj              1/1     Running   0          43m
-   ```
+      ``` shell
+         kubectl get pods -A                                                         
+         NAMESPACE     NAME                                        READY   STATUS    RESTARTS   AGE
+         datastorage   pinot-broker-0                              0/1     Running   1          75s
+         datastorage   pinot-controller-0                          1/1     Running   1          75s
+         datastorage   pinot-minion-0                              1/1     Running   0          75s
+         datastorage   pinot-server-0                              1/1     Running   1          75s
+         datastorage   pinot-server-1                              1/1     Running   1          75s
+         datastorage   pinot-zookeeper-0                           1/1     Running   0          75s
+         ingestion     igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          120m
+         ingestion     igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          5h49m
+         ingestion     igtiedh-kafka-0                             1/1     Running   0          5h50m
+         ingestion     igtiedh-zookeeper-0                         1/1     Running   0          5h50m
+         ingestion     igtiedh-zookeeper-1                         1/1     Running   0          5h50m
+         ingestion     igtiedh-zookeeper-2                         1/1     Running   0          5h50m
+         ingestion     strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          6h40m
+         kube-system   aws-node-548f6                              1/1     Running   0          8h
+         kube-system   aws-node-x5jp9                              1/1     Running   0          8h
+         kube-system   coredns-5c778788f4-6b6vl                    1/1     Running   0          8h
+         kube-system   coredns-5c778788f4-tgzdr                    1/1     Running   0          8h
+         kube-system   kube-proxy-l6bd4                            1/1     Running   0          8h
+         kube-system   kube-proxy-v8k58                            1/1     Running   0          8h
+         processing    ksqldb-server-5fd75cb5f7-sgdlj              1/1     Running   0          43m
+      ```
 
-   Configurando um Port Forwarding para acesso do Pinot.
-   (./mod-02/igti-k8s-exercise/query-pinot-data.sh)
-   <br>
+   - Configurando um Port Forwarding para acesso do Pinot. (./mod-02/igti-k8s-exercise/query-pinot-data.sh)
 
-   ``` shell 
-      > ./query-pinot-data.sh 
-   ```
 
-   Assim que executado o script acima, será feito o direcionamento para porta 9000 no browser para acesso do Pinot.
+      ``` shell 
+         > ./query-pinot-data.sh 
+      ```
 
-   <br>
-   <p align="left">
-      <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
-   </p>
-   <br> 
+      Assim que executado o script acima, será feito o direcionamento para porta 9000 no browser para acesso do Pinot.
 
-   Executar o script para disponibilizar para o Pinota estrutura da tabela realtime que receberá os dados do kafka.
 
-   ``` shell
-      > cd mod-02/igti-k8s-exercise.
+      <p align="left">
+         <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
+      </p>
+      <br> 
+
+   - Executar o script para disponibilizar para o Pinota estrutura da tabela realtime que receberá os dados do kafka.
+
+      ``` shell
+         > cd mod-02/igti-k8s-exercise.
+         
+         > ./add-table-pinot.sh
+
+            # Entrou no Pinot remotamente e vamos lista para ver se foi feito a cópia dos arquivo
+            root@pinot-controller-0:/opt/pinot# ls -ls
+            total 108
+            24 -rw-r--r--  1 root root  24012 Sep  3 22:21 LICENSE
+            32 -rw-r--r--  1 root root  28788 Sep  3 22:21 NOTICE
+            0 drwxr-xr-x  1 root root     26 Sep  3 22:25 bin
+            4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 conf
+            0 drwxr-xr-x  2 root root      6 Sep  3 22:21 configs
+            4 -rw-r--r--  1  501 staff   607 Sep  4 05:42 customers-schema.json
+            4 -rw-r--r--  1  501 staff  1103 Sep  4 05:42 customers-table.json
+            0 drwxr-xr-x  2 root root      6 Sep  3 22:21 data
+            0 drwxr-xr-x  4 root root     50 Sep  3 22:25 etc
+            0 drwxr-xr-x  1 root root     20 Sep  3 22:25 examples
+            36 -rw-r--r--  1 root root  36453 Sep  4 05:23 gc-pinot-controller.log
+            0 drwxr-xr-x  2 root root     64 Sep  3 22:21 lib
+            4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 licenses
+            0 drwxr-xr-x  2 root root     27 Sep  4 05:16 logs
+            0 drwxr-xr-x 11 root root    246 Sep  3 22:21 plugins
+
+
+            # A variavel de ambiente JAVA_OPTS deve ser sobrescrita como ""
+            root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
+            -Xms256M -Xmx1G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xlog:gc*:file=/opt/pinot/gc-pinot-controller.log -Dlog4j2.configurationFile=/opt/pinot/conf/log4j2.xml -Dplugins.dir=/opt/pinot/plugins
+            root@pinot-controller-0:/opt/pinot# JAVA_OPTS=""
+            root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
+
+      ```
+
+   - Adicionando as tablelas no Pinot.
+
+      ``` shell
+         root@pinot-controller-0:/opt/pinot# cd bin
+         root@pinot-controller-0:/opt/pinot/bin# ./pinot-admin.sh AddTable \
+         > -schemaFile /opt/pinot/customers-schema.json \
+         > -tableConfigFile /opt/pinot/customers-table.json \
+         > -exec
+
+         [...]
+
+         {"status":"Table customers_REALTIME succesfully added"}
+
+      ```
+
+   - Ver a tabela disponível no Pinot.
       
-      > ./add-table-pinot.sh
-
-         # Entrou no Pinot remotamente e vamos lista para ver se foi feito a cópia dos arquivo
-         root@pinot-controller-0:/opt/pinot# ls -ls
-         total 108
-         24 -rw-r--r--  1 root root  24012 Sep  3 22:21 LICENSE
-         32 -rw-r--r--  1 root root  28788 Sep  3 22:21 NOTICE
-         0 drwxr-xr-x  1 root root     26 Sep  3 22:25 bin
-         4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 conf
-         0 drwxr-xr-x  2 root root      6 Sep  3 22:21 configs
-         4 -rw-r--r--  1  501 staff   607 Sep  4 05:42 customers-schema.json
-         4 -rw-r--r--  1  501 staff  1103 Sep  4 05:42 customers-table.json
-         0 drwxr-xr-x  2 root root      6 Sep  3 22:21 data
-         0 drwxr-xr-x  4 root root     50 Sep  3 22:25 etc
-         0 drwxr-xr-x  1 root root     20 Sep  3 22:25 examples
-         36 -rw-r--r--  1 root root  36453 Sep  4 05:23 gc-pinot-controller.log
-         0 drwxr-xr-x  2 root root     64 Sep  3 22:21 lib
-         4 drwxr-xr-x  2 root root   4096 Sep  3 22:21 licenses
-         0 drwxr-xr-x  2 root root     27 Sep  4 05:16 logs
-         0 drwxr-xr-x 11 root root    246 Sep  3 22:21 plugins
+      
+      <p align="left">
+         <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
+      </p>
+      <br>    
 
 
-         # A variavel de ambiente JAVA_OPTS deve ser sobrescrita como ""
-         root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
-         -Xms256M -Xmx1G -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -Xlog:gc*:file=/opt/pinot/gc-pinot-controller.log -Dlog4j2.configurationFile=/opt/pinot/conf/log4j2.xml -Dplugins.dir=/opt/pinot/plugins
-         root@pinot-controller-0:/opt/pinot# JAVA_OPTS=""
-         root@pinot-controller-0:/opt/pinot# echo $JAVA_OPTS
-
-   ```
-
-   Adicionando as tablelas no Pinot.
-
-   ``` shell
-      root@pinot-controller-0:/opt/pinot# cd bin
-      root@pinot-controller-0:/opt/pinot/bin# ./pinot-admin.sh AddTable \
-      > -schemaFile /opt/pinot/customers-schema.json \
-      > -tableConfigFile /opt/pinot/customers-table.json \
-      > -exec
-
-      [...]
-
-      {"status":"Table customers_REALTIME succesfully added"}
-
-   ```
-
-   Ver a tabela disponível no Pinot.
+   - Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
    <br>
-   
-   <p align="left">
-      <img src="images/mod02-trab-pinot-001.png" width="600" style="max-width: 600px;">
-   </p>
-   <br>    
-
-
-   Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
-   <br>
-   <br>
+<br>
