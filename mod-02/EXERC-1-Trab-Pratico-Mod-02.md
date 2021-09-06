@@ -374,7 +374,9 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
 - Deploy de Serviço - Kafka Strimzi (https://strimzi.io/).
 <br>
+
    - Para instalação Kafka Strimzi no cluster Kubernetes, usar o script:
+
 
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/kafka-strimzi-k8s-v1beta1
@@ -398,7 +400,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
          https://strimzi.io/docs/operators/latest/using.html#deploying-cluster-operator-helm-chart-str
 
       ```
-   <br>
+
 
    - Verificar os dados mostrados no final da execução e verificar o `POD ingestion`.
 
@@ -407,10 +409,11 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
          NAME                                        READY   STATUS    RESTARTS   AGE
          strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          20m
       ```
-   <br>
+   
    <br>
 
    - Definição do Broker:
+   
       ``` shell
          > cd ./mod-02/igti-k8s-exercise/kafka-strimzi-k8s-v1beta1
 
