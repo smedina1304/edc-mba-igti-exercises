@@ -555,9 +555,11 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
          ```
 
+         <br>
+
       - Finalizando o script, e sendo apresentado a mensagem de sucesso, a imagem será mostrada na `AWS ECR`, dentro do repositório criado.
 
-         <br>
+
          <p align="left">
             <img src="images/mod02-trab-ecr-005.png" width="400" style="max-width: 400px;">
          </p>
