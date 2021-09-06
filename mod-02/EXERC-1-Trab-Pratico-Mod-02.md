@@ -408,6 +408,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
       ```
 
+      <br>
 
    - Verificar os dados mostrados no final da execução e verificar o `POD ingestion`.
 
@@ -417,7 +418,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
          strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          20m
       ```
    
-   <br>
+      <br>
 
    - Definição do Broker:
 
