@@ -227,7 +227,6 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
             <br>
 
    - Salvando localmente as configurações de acesso ao Cluster, utilizar o script `kube-config.sh`. Abaixo o conteúdo do script:
-   <br>
 
       ``` shell
          > cat ./kube-config.sh
@@ -278,7 +277,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
    <br>
 
    - Criando os namespaces necessários para organizar o deploy dos recursos no cluster.
-   <br>
+
 
       ``` shell
          > kubectl create namespace ingestion
@@ -307,7 +306,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Criando o servidor Postgres via RDS, seleção da versão e o modo free tier.
-<br>
+
 
 <p align="left">
    <img src="images/mod02-trab-postgre-001.png" width="400" style="max-width: 400px;">
