@@ -8,6 +8,7 @@ Este conteúdo tem o objetivo de registrar os exercícios práticos realizados p
 
 Também como referência utilizar o(s) repositório(s) abaixo:
 - Professor Neylson Crepalde:  https://github.com/neylsoncrepalde/edc-mod1-exercise-igti
+- Professor Carlos Barbosa: https://github.com/carlosbpy/igti-k8s-exercise
 
 <b>
 
