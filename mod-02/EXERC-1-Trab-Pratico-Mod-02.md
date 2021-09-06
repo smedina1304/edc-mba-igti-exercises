@@ -680,7 +680,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Kafka Sink.
-<br>
+
 
    - Verificar as configurações do arquivo, `./sink/bucket-s3.yml`.
 
