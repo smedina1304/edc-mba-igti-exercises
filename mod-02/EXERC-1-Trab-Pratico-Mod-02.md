@@ -604,7 +604,8 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
 *Etapa 7:*
 <br>
-Deploy de Serviço - Kafka Topic.
+
+- Deploy de Serviço - Kafka Topic.
 <br>
 
    - Verificar as configurações do arquivo, `./topic/ingest-src-postgres-customers-json.yml`.
