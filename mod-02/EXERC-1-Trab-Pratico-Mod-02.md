@@ -499,6 +499,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
       - Executando o script.
 
+
          ``` shell
             > cd ./mod-02/igti-k8s-exercise/infra
 
