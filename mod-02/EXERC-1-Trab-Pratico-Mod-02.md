@@ -711,184 +711,185 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - KsqlDB.
-<br>
+
 
    - Verificar as configurações do arquivo, `./ksqldb-server/repository/deployment`.
-   <br>
+
 
    - Estando ok, executar do deploy:
 
-   ``` shell
-      > kubectl apply -f ./ksqldb-server/repository/deployment -n processing
-      deployment.apps/ksqldb-server created
-      service/ksqldb-headless created
-      service/ksqldb-server created
+      ``` shell
+         > kubectl apply -f ./ksqldb-server/repository/deployment -n processing
+         deployment.apps/ksqldb-server created
+         service/ksqldb-headless created
+         service/ksqldb-server created
 
-   ```
+      ```
 
-   Verificando.
+      Verificando.
 
-   ``` shell
-      > kubectl get pods -n processing                                                             
-      NAME                             READY   STATUS    RESTARTS   AGE
-      ksqldb-server-5fd75cb5f7-sgdlj   1/1     Running   0          84s
-   ```
+      ``` shell
+         > kubectl get pods -n processing                                                             
+         NAME                             READY   STATUS    RESTARTS   AGE
+         ksqldb-server-5fd75cb5f7-sgdlj   1/1     Running   0          84s
+      ```
 
-   Acessando KsqlDB.
+      Acessando KsqlDB.
 
-   ``` shell
-      > kubectl exec ksqldb-server-5fd75cb5f7-sgdlj -n processing -i -t -- bash ksql               
-      OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
-                        
-                        ===========================================
-                        =       _              _ ____  ____       =
-                        =      | | _____  __ _| |  _ \| __ )      =
-                        =      | |/ / __|/ _` | | | | |  _ \      =
-                        =      |   <\__ \ (_| | | |_| | |_) |     =
-                        =      |_|\_\___/\__, |_|____/|____/      =
-                        =                   |_|                   =
-                        =  Event Streaming Database purpose-built =
-                        =        for stream processing apps       =
-                        ===========================================
+      ``` shell
+         > kubectl exec ksqldb-server-5fd75cb5f7-sgdlj -n processing -i -t -- bash ksql               
+         OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.
+                           
+                           ===========================================
+                           =       _              _ ____  ____       =
+                           =      | | _____  __ _| |  _ \| __ )      =
+                           =      | |/ / __|/ _` | | | | |  _ \      =
+                           =      |   <\__ \ (_| | | |_| | |_) |     =
+                           =      |_|\_\___/\__, |_|____/|____/      =
+                           =                   |_|                   =
+                           =  Event Streaming Database purpose-built =
+                           =        for stream processing apps       =
+                           ===========================================
 
-      Copyright 2017-2020 Confluent Inc.
+         Copyright 2017-2020 Confluent Inc.
 
-      CLI v0.12.0, Server v0.12.0 located at http://localhost:8088
-      Server Status: RUNNING
+         CLI v0.12.0, Server v0.12.0 located at http://localhost:8088
+         Server Status: RUNNING
 
-      Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
+         Having trouble? Type 'help' (case-insensitive) for a rundown of how things work!
 
-      ksql> 
+         ksql> 
 
-   ```
+      ```
 
-   Mostrando os Topics disponíveis.
+      Mostrando os Topics disponíveis.
 
-   ``` sql
-      ksql> show topics;
+      ``` sql
+         ksql> show topics;
 
-      Kafka Topic                                             | Partitions | Partition Replicas 
-      -------------------------------------------------------------------------------------------
-      __strimzi-topic-operator-kstreams-topic-store-changelog | 1          | 1                  
-      __strimzi_store_topic                                   | 1          | 1                  
-      connect-cluster-configs                                 | 1          | 1                  
-      connect-cluster-offsets                                 | 25         | 1                  
-      connect-cluster-status                                  | 5          | 1                  
-      default_ksql_processing_log                             | 1          | 1                  
-      src-postgres-customers-json                             | 9          | 1                  
-      -------------------------------------------------------------------------------------------
-   ```
+         Kafka Topic                                             | Partitions | Partition Replicas 
+         -------------------------------------------------------------------------------------------
+         __strimzi-topic-operator-kstreams-topic-store-changelog | 1          | 1                  
+         __strimzi_store_topic                                   | 1          | 1                  
+         connect-cluster-configs                                 | 1          | 1                  
+         connect-cluster-offsets                                 | 25         | 1                  
+         connect-cluster-status                                  | 5          | 1                  
+         default_ksql_processing_log                             | 1          | 1                  
+         src-postgres-customers-json                             | 9          | 1                  
+         -------------------------------------------------------------------------------------------
+      ```
 
-   Creando um Stream para consumir o dado. (src-postgres-customers-json.sql)
+      Criando um Stream para consumir o dado. (src-postgres-customers-json.sql)
 
-   ``` sql
+      ``` sql
 
-      CREATE OR REPLACE STREAM ksql_stream_customers_json
-      (
-      "payload" STRUCT<"id" BIGINT,
-                        "nome" VARCHAR,
-                        "sexo" VARCHAR,
-                        "endereco" VARCHAR,
-                        "telefone" VARCHAR,
-                        "email" VARCHAR,
-                        "foto" VARCHAR,
-                        "nascimento" VARCHAR,
-                        "profissao" VARCHAR,
-                        "dt_update" BIGINT,
-                        "messagetopic" VARCHAR,
-                        "messagesource" VARCHAR>
-      )
-      WITH (KAFKA_TOPIC='src-postgres-customers-json', VALUE_FORMAT='JSON');
+         CREATE OR REPLACE STREAM ksql_stream_customers_json
+         (
+         "payload" STRUCT<"id" BIGINT,
+                           "nome" VARCHAR,
+                           "sexo" VARCHAR,
+                           "endereco" VARCHAR,
+                           "telefone" VARCHAR,
+                           "email" VARCHAR,
+                           "foto" VARCHAR,
+                           "nascimento" VARCHAR,
+                           "profissao" VARCHAR,
+                           "dt_update" BIGINT,
+                           "messagetopic" VARCHAR,
+                           "messagesource" VARCHAR>
+         )
+         WITH (KAFKA_TOPIC='src-postgres-customers-json', VALUE_FORMAT='JSON');
 
-      Message        
-      ----------------
-      Stream created 
-      ----------------
+         Message        
+         ----------------
+         Stream created 
+         ----------------
+
+
+         ksql> show streams;
+
+         Stream Name                | Kafka Topic                 | Format 
+         -------------------------------------------------------------------
+         KSQL_PROCESSING_LOG        | default_ksql_processing_log | JSON   
+         KSQL_STREAM_CUSTOMERS_JSON | src-postgres-customers-json | JSON   
+         -------------------------------------------------------------------
+
+      ```
+
+      Utilizar o Stream criado e ler como uma tabela gerando um a output Topic.
+      (output_ksqldb_stream_customers_json.sql)
+
+      ``` sql
+
+         CREATE OR REPLACE STREAM output_ksqldb_stream_customers_json
+         WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, VALUE_FORMAT='JSON')
+         AS
+         SELECT
+         AS_VALUE("payload"->"id") as "business_key",
+         "payload"->"id" as "id",
+         "payload"->"nome",
+         "payload"->"sexo",
+         "payload"->"endereco",
+         "payload"->"telefone",
+         "payload"->"dt_update"
+         FROM ksql_stream_customers_json
+         EMIT CHANGES;
+
+         Message                                                          
+         ------------------------------------------------------------------
+         Created query with ID CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 
+         ------------------------------------------------------------------
+
+
+      ksql> show queries;
+
+      Query ID                                   | Query Type | Status    | Sink Name                           | Sink Kafka Topic                    | Query String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      --------------------------------------------------------------------------------------------------------------------------------------------------------------
+      CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 | PERSISTENT | RUNNING:1 | OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | CREATE OR REPLACE STREAM OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, REPLICAS=1, VALUE_FORMAT='JSON') AS SELECT   AS_VALUE(KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id`) `business_key`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id` `id`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`nome` `nome`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`sexo` `sexo`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`endereco` `endereco`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`telefone` `telefone`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`dt_update` `dt_update` FROM KSQL_STREAM_CUSTOMERS_JSON KSQL_STREAM_CUSTOMERS_JSON EMIT CHANGES; 
+      --------------------------------------------------------------------------------------------------------------------------------------------------------------
+      For detailed information on a Query run: EXPLAIN <Query ID>;
+
 
 
       ksql> show streams;
 
-      Stream Name                | Kafka Topic                 | Format 
-      -------------------------------------------------------------------
-      KSQL_PROCESSING_LOG        | default_ksql_processing_log | JSON   
-      KSQL_STREAM_CUSTOMERS_JSON | src-postgres-customers-json | JSON   
-      -------------------------------------------------------------------
+      Stream Name                         | Kafka Topic                         | Format 
+      ------------------------------------------------------------------------------------
+      KSQL_PROCESSING_LOG                 | default_ksql_processing_log         | JSON   
+      KSQL_STREAM_CUSTOMERS_JSON          | src-postgres-customers-json         | JSON   
+      OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | JSON   
+      ------------------------------------------------------------------------------------
 
-   ```
+      ```
 
-   Utilizar o Stream criado e ler como uma tabela gerando um a output Topic.
-   (output_ksqldb_stream_customers_json.sql)
-
-   ``` sql
-
-      CREATE OR REPLACE STREAM output_ksqldb_stream_customers_json
-      WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, VALUE_FORMAT='JSON')
-      AS
-      SELECT
-      AS_VALUE("payload"->"id") as "business_key",
-      "payload"->"id" as "id",
-      "payload"->"nome",
-      "payload"->"sexo",
-      "payload"->"endereco",
-      "payload"->"telefone",
-      "payload"->"dt_update"
-      FROM ksql_stream_customers_json
-      EMIT CHANGES;
-
-      Message                                                          
-      ------------------------------------------------------------------
-      Created query with ID CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 
-      ------------------------------------------------------------------
-
-
-   ksql> show queries;
-
-   Query ID                                   | Query Type | Status    | Sink Name                           | Sink Kafka Topic                    | Query String                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-   --------------------------------------------------------------------------------------------------------------------------------------------------------------
-   CSAS_OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON_0 | PERSISTENT | RUNNING:1 | OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | CREATE OR REPLACE STREAM OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON WITH (KAFKA_TOPIC='output-ksqldb-stream-customers-json', PARTITIONS=3, REPLICAS=1, VALUE_FORMAT='JSON') AS SELECT   AS_VALUE(KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id`) `business_key`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`id` `id`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`nome` `nome`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`sexo` `sexo`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`endereco` `endereco`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`telefone` `telefone`,   KSQL_STREAM_CUSTOMERS_JSON.`payload`->`dt_update` `dt_update` FROM KSQL_STREAM_CUSTOMERS_JSON KSQL_STREAM_CUSTOMERS_JSON EMIT CHANGES; 
-   --------------------------------------------------------------------------------------------------------------------------------------------------------------
-   For detailed information on a Query run: EXPLAIN <Query ID>;
-
-
-
-   ksql> show streams;
-
-   Stream Name                         | Kafka Topic                         | Format 
-   ------------------------------------------------------------------------------------
-   KSQL_PROCESSING_LOG                 | default_ksql_processing_log         | JSON   
-   KSQL_STREAM_CUSTOMERS_JSON          | src-postgres-customers-json         | JSON   
-   OUTPUT_KSQLDB_STREAM_CUSTOMERS_JSON | output-ksqldb-stream-customers-json | JSON   
-   ------------------------------------------------------------------------------------
-
-   ```
-
-   Queries de teste. (select_output_stream_customers.sql)
+      Queries de teste. (select_output_stream_customers.sql)
 
       OBS: se necessário definir para ler desde o primeiro registro executar o comando abaixo:
       ksql> set 'auto.offset.reset' =  'earliest';
 
 
-   ``` sql
-      -- QUERY 1
-      SELECT
-      "sexo",
-      count("business_key") AS "qtd_por_sexo"
-      FROM output_ksqldb_stream_customers_json
-      GROUP BY "sexo"
-      EMIT CHANGES;
+      ``` sql
+         -- QUERY 1
+         SELECT
+         "sexo",
+         count("business_key") AS "qtd_por_sexo"
+         FROM output_ksqldb_stream_customers_json
+         GROUP BY "sexo"
+         EMIT CHANGES;
 
-      -- QUERY 2
+         -- QUERY 2
 
-      SELECT
-      "id",
-      "nome",
-      "endereco",
-      "telefone",
-      "dt_update"
-      FROM output_ksqldb_stream_customers_json
-      EMIT CHANGES;
-   ```
-
+         SELECT
+         "id",
+         "nome",
+         "endereco",
+         "telefone",
+         "dt_update"
+         FROM output_ksqldb_stream_customers_json
+         EMIT CHANGES;
+      ```
+   <br>
+<br>
 
 *Etapa 10:*
 <br>
