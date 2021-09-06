@@ -606,75 +606,73 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Kafka Topic.
-<br>
 
    - Verificar as configurações do arquivo, `./topic/ingest-src-postgres-customers-json.yml`.
 
    - Estando ok, executar do deploy:
 
-   ``` shell
-      > kubectl apply -f topic/ingest-src-postgres-customers-json.yml -n ingestion 
-      kafkaconnector.kafka.strimzi.io/ingest-src-postgresql-customers-json-3200e849928721 created
+      ``` shell
+         > kubectl apply -f topic/ingest-src-postgres-customers-json.yml -n ingestion 
+         kafkaconnector.kafka.strimzi.io/ingest-src-postgresql-customers-json-3200e849928721 created
 
-   ```
+      ```
 
-   Verificando.
+      Verificando.
 
-   ``` shell
+      ``` shell
 
-      > kubectl get kafkatopics -n ingestion
-      NAME                                                                                               CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
-      connect-cluster-configs                                                                            igtiedh   1            1                    True
-      connect-cluster-offsets                                                                            igtiedh   25           1                    True
-      connect-cluster-status                                                                             igtiedh   5            1                    True
-      consumer-offsets---84e7a678d08f4bd226872e5cdd4eb527fadc1c6a                                        igtiedh   50           1                    True
-      src-postgres-customers-json                                                                        igtiedh   9            1                    True
-      strimzi-store-topic---effb8e3e057afce1ecf67c3f5d8e4e3ff177fc55                                     igtiedh   1            1                    True
-      strimzi-topic-operator-kstreams-topic-store-changelog---b75e702040b99be8a9263134de3507fc0cc4017b   igtiedh   1            1                    True
+         > kubectl get kafkatopics -n ingestion
+         NAME                                                                                               CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
+         connect-cluster-configs                                                                            igtiedh   1            1                    True
+         connect-cluster-offsets                                                                            igtiedh   25           1                    True
+         connect-cluster-status                                                                             igtiedh   5            1                    True
+         consumer-offsets---84e7a678d08f4bd226872e5cdd4eb527fadc1c6a                                        igtiedh   50           1                    True
+         src-postgres-customers-json                                                                        igtiedh   9            1                    True
+         strimzi-store-topic---effb8e3e057afce1ecf67c3f5d8e4e3ff177fc55                                     igtiedh   1            1                    True
+         strimzi-topic-operator-kstreams-topic-store-changelog---b75e702040b99be8a9263134de3507fc0cc4017b   igtiedh   1            1                    True
 
 
-      > kubectl get kafkatopics src-postgres-customers-json -n ingestion
-      NAME                          CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
-      src-postgres-customers-json   igtiedh   9            1                    True
+         > kubectl get kafkatopics src-postgres-customers-json -n ingestion
+         NAME                          CLUSTER   PARTITIONS   REPLICATION FACTOR   READY
+         src-postgres-customers-json   igtiedh   9            1                    True
 
-      > kubectl get kafkatopics src-postgres-customers-json -n ingestion -o yaml
-      apiVersion: kafka.strimzi.io/v1beta2
-      kind: KafkaTopic
-      metadata:
-      creationTimestamp: "2021-09-04T03:27:52Z"
-      generation: 1
-      labels:
-         strimzi.io/cluster: igtiedh
-      name: src-postgres-customers-json
-      namespace: ingestion
-      resourceVersion: "41957"
-      uid: c845857e-0db6-4e8b-8760-081cd4a16d49
-      spec:
-      config: {}
-      partitions: 9
-      replicas: 1
-      topicName: src-postgres-customers-json
-      status:
-      conditions:
-      - lastTransitionTime: "2021-09-04T03:27:52.432627Z"
-         status: "True"
-         type: Ready
-      observedGeneration: 1
+         > kubectl get kafkatopics src-postgres-customers-json -n ingestion -o yaml
+         apiVersion: kafka.strimzi.io/v1beta2
+         kind: KafkaTopic
+         metadata:
+         creationTimestamp: "2021-09-04T03:27:52Z"
+         generation: 1
+         labels:
+            strimzi.io/cluster: igtiedh
+         name: src-postgres-customers-json
+         namespace: ingestion
+         resourceVersion: "41957"
+         uid: c845857e-0db6-4e8b-8760-081cd4a16d49
+         spec:
+         config: {}
+         partitions: 9
+         replicas: 1
+         topicName: src-postgres-customers-json
+         status:
+         conditions:
+         - lastTransitionTime: "2021-09-04T03:27:52.432627Z"
+            status: "True"
+            type: Ready
+         observedGeneration: 1
 
-   ```
+      ```
 
-   Monitorando o Topic com `--from-beginning`.
-   <br>
+      Monitorando o Topic com `--from-beginning`.
 
-   ``` shell
-   kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
-   --bootstrap-server localhost:9092 \
-   --property print.key==true \
-   --from-beginning \
-   --topic src-postgres-customers-json
-   ```
+      ``` shell
+      kubectl exec igtiedh-kafka-0 -n ingestion -c kafka -i -t -- bin/kafka-console-consumer.sh \
+      --bootstrap-server localhost:9092 \
+      --property print.key==true \
+      --from-beginning \
+      --topic src-postgres-customers-json
+      ```
 
-   Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
+      Fazer simulações de envio, e depois comparar a quantidade de eventos recebidos no Kafka e os registrados na base de dados postgres.
 
    <br>
 
