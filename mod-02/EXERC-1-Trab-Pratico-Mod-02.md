@@ -491,11 +491,13 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 *Etapa 6:*
 <br>
 
+
 - Deploy de Serviço - Kafka Connect.
 
 
    - Criando um repositório no ECR para deploy da imagem do Kafka Connect.
    <br>
+
 
       - Executando o script.
 
@@ -507,94 +509,8 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
          ```
 
-         <br>
-
-      - Verificando o `AWS ECR`.
-
-         <p align="left">
-            <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
-         </p>
-         <br> 
-
-      - Atualizando o scrip `./build-img-strimzi.sh` com as instruções da `AWS`:
-         <br>
-
-      - Selecionar a imagem.
-
-         <p align="left">
-            <img src="images/mod02-trab-ecr-001.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
-
-      - Entrar em `View Commands`.
-
-         <p align="left">
-            <img src="images/mod02-trab-ecr-002.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
-
-      - Verificar o OS.
-
-         <p align="left">
-            <img src="images/mod02-trab-ecr-003.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
-
-      - Copiar a lista de comandos na ordem definida, para ser executada.
-         <p align="left">
-            <img src="images/mod02-trab-ecr-004.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>       
-
-      - Executando o Build da imagem Docker:
-
-         ``` shell
-            > ./build-img-strimzi.sh
-
-         ```
-
-      - Finalizando o script, e sendo apresentado a mensagem de sucesso, a imagem será mostrada na `AWS ECR`, dentro do repositório criado.
-
-         <br>
-         <p align="left">
-            <img src="images/mod02-trab-ecr-005.png" width="400" style="max-width: 400px;">
-         </p>
-         <br> 
-
-      - Atualizar a URI da imagem no arquivo `connect.yml`.
-
-         <br>
-         <p align="left">
-            <img src="images/mod02-trab-ecr-006.png" width="400" style="max-width: 400px;">
-         </p>
-         <br> 
-
-         <p align="left">
-            <img src="images/mod02-trab-ecr-007.png" width="400" style="max-width: 400px;">
-         </p>
-         <br>
-
-      - Executando o deploy das configuração do Kafka Connect:
-
-         ``` shell
-            > kubectl apply -f connect/connect.yml -n ingestion                  
-            kafkaconnect.kafka.strimzi.io/igtiedh created
-         ```
-
-      - Verificando.
-
-         ``` shell
-            > kubectl get pods -n ingestion                                      
-            NAME                                        READY   STATUS    RESTARTS   AGE
-            igtiedh-connect-554dfc4cc7-2mjzp            1/1     Running   0          114s
-            igtiedh-entity-operator-7f9db4fb97-2hs2c    3/3     Running   0          3h51m
-            igtiedh-kafka-0                             1/1     Running   0          3h51m
-            igtiedh-zookeeper-0                         1/1     Running   0          3h52m
-            igtiedh-zookeeper-1                         1/1     Running   0          3h52m
-            igtiedh-zookeeper-2                         1/1     Running   0          3h52m
-            strimzi-cluster-operator-799b7d7596-c8zt6   1/1     Running   0          4h41m
-         ```
-   <br>
+      <br>
+<br>
 
 *Etapa 7:*
 <br>
