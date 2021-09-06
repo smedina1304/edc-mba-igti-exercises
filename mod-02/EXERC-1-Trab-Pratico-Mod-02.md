@@ -188,7 +188,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
    - Assim que o script for finalizado verifique os logs para garantir que todos os recursos foram criados.
 
-   
+
 
       - `ATENÇÃO:` Sendo utilizanda uma conta Free Tier, e mediante ao uso anterior, o cluster pode não ser criado pelo número de IPs da VPC reservados anteriormente, porem veja abaixo o erro reportado, e como é possível resolver este problema e seguir com a criação do cluster.
          <br>
@@ -307,63 +307,71 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 - Criando o servidor Postgres via RDS, seleção da versão e o modo free tier.
 
 
-<p align="left">
-   <img src="images/mod02-trab-postgre-001.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-001.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Definição do nome da instance, usuário e senha.
-<p align="left">
-   <img src="images/mod02-trab-postgre-002.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Definição do nome da instance, usuário e senha.
 
-   - Caracteristica do Servidor.
-<p align="left">
-   <img src="images/mod02-trab-postgre-003.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-002.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Storage.
-<p align="left">
-   <img src="images/mod02-trab-postgre-004.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Caracteristica do Servidor.
 
-   - Configurações de Network.
-<p align="left">
-   <img src="images/mod02-trab-postgre-005.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-003.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-<p align="left">
-   <img src="images/mod02-trab-postgre-006.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Storage.
 
-   - Autenticação.
-<p align="left">
-   <img src="images/mod02-trab-postgre-007.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-004.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Opções adicionais.
-<p align="left">
-   <img src="images/mod02-trab-postgre-008.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+- Configurações de Network.
 
-   - Backup.
-<p align="left">
-   <img src="images/mod02-trab-postgre-009.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-005.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
-   - Manutenção.
-<p align="left">
-   <img src="images/mod02-trab-postgre-010.png" width="400" style="max-width: 400px;">
-</p>
-<br>
+   <p align="left">
+      <img src="images/mod02-trab-postgre-006.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Autenticação.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-007.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Opções adicionais.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-008.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Backup.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-009.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
+
+- Manutenção.
+
+   <p align="left">
+      <img src="images/mod02-trab-postgre-010.png" width="400" style="max-width: 400px;">
+   </p>
+   <br>
 
 
 <br>
