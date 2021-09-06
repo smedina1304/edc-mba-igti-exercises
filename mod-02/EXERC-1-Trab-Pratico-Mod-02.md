@@ -380,7 +380,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 <br>
 
 - Deploy de Serviço - Kafka Strimzi (https://strimzi.io/).
-<br>
+
 
    - Para instalação Kafka Strimzi no cluster Kubernetes, usar o script:
 
