@@ -188,7 +188,7 @@ Exercícios dos Módulos do MBA IGTI - Engenheiro de Dados Cloud
 
    - Assim que o script for finalizado verifique os logs para garantir que todos os recursos foram criados.
 
-      <br>
+   
 
       - `ATENÇÃO:` Sendo utilizanda uma conta Free Tier, e mediante ao uso anterior, o cluster pode não ser criado pelo número de IPs da VPC reservados anteriormente, porem veja abaixo o erro reportado, e como é possível resolver este problema e seguir com a criação do cluster.
          <br>
