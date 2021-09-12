@@ -133,3 +133,7 @@ dmypy.json
 
 mod-01/infraestrutura/.terraform/providers/registry.terraform.io/hashicorp/aws/3.55.0/darwin_amd64/terraform-provider-aws_v3.55.0_x5
 mod-01/infraestrutura/.terraform
+
+# modulo 3 - dataframes
+mod-03/data
+mod-03/data/tsv
