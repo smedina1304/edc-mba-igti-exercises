@@ -137,3 +137,7 @@ mod-01/infraestrutura/.terraform
 # modulo 3 - dataframes
 mod-03/data
 mod-03/data/tsv
+
+# files
+.DS_Store
+mod-03/.DS_Store
