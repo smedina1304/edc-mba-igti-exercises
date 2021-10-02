@@ -140,4 +140,7 @@ mod-03/data/tsv
 
 # files
 .DS_Store
+mod-01/.DS_Store
+mod-02/.DS_Store
 mod-03/.DS_Store
+mod-04/.DS_Store
